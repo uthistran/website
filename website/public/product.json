@@ -1,0 +1,113 @@
+{
+    "ProductDetails": [
+        {
+            "mainproduct": "Atom Bomb",
+            "mainimage": "atombomb.png",
+            "subproducts": [
+                {
+                    "name": "Classic Bomb",
+                    "description": "",
+                    "price": 148,
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Hydro Bomb",
+                    "description": "",
+                    "price": "86",
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Jurassic Bomb",
+                    "description": "",
+                    "price": "236",
+                    "discount": "50%",
+                    "image": ""
+                }
+            ]
+        },
+        {
+            "mainproduct": "Flower Pots",
+            "mainimage": "flowerpots.png",
+            "subproducts": [
+                {
+                    "name": "Flower Pots Small",
+                    "description": "",
+                    "price": 94,
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Flower Pots Big",
+                    "description": "",
+                    "price": "124",
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Spring Flower Pots",
+                    "description": "",
+                    "price": "160",
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Flower Pots Special",
+                    "description": "",
+                    "price": "178",
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Flower Pots Deluxe",
+                    "description": "",
+                    "price": "286",
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Multi Color Pots",
+                    "description": "",
+                    "price": "320",
+                    "discount": "50%",
+                    "image": ""
+                }
+            ]
+        },
+        {
+            "mainproduct": "Gift Boxes",
+            "mainimage": "giftbox.png",
+            "subproducts": [
+                {
+                    "name": "Silver Gift Box",
+                    "description": "",
+                    "price": 600,
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Gold Gift Box",
+                    "description": "",
+                    "price": "700",
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Diamond Gift Box",
+                    "description": "",
+                    "price": "980",
+                    "discount": "50%",
+                    "image": ""
+                },
+                {
+                    "name": "Platinum Gift Box",
+                    "description": "",
+                    "price": "1500",
+                    "discount": "50%",
+                    "image": ""
+                }
+            ]
+        }
+    ]
+}
