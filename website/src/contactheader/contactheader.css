@@ -1,0 +1,49 @@
+.contactHeader{
+    width: 100%;
+    background-color: bisque;
+    float: left;
+}
+
+.contactHeader .location, .contactHeader .phone {
+    float: left;
+    font-size: 12pt;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.phone a{
+    text-decoration: none;
+    color: black;
+}
+
+.contactHeader .socialmedia ul {
+    list-style: none;
+    margin-block-start: 0px;
+}
+
+.contactHeader .socialmedia ul li{
+    float: left;
+    line-height: 13pt;
+    margin-right: 5px;
+}
+
+.contactHeader .socialmedia ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.contactHeader .socialmedia ul li a i{
+    font-size: 12pt;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'brandfont';
+    src: url('/webfonts/fa-brands-400.woff') format('woff');
+  }
+
+  .socialmedia{
+      font-family:  'brandfont';
+      float: right;
+      color: #fff;
+  }
