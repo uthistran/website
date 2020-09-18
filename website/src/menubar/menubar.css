@@ -1,0 +1,33 @@
+.menumain{
+    float: left;
+    width: 100%;
+    background: transparent;
+}
+
+.logo{
+    float: left;
+    width: 20%;
+}
+
+.routing{
+    float: right;
+    width: 80%;
+}
+
+.routing ul{
+    list-style: none;
+    padding-inline-start: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.routing ul li{
+    margin-right: 30px;
+    margin-left: 30px;
+    display: inline;
+}
+
+.routing ul li a{
+    text-decoration: none;
+    color: #000;
+}
