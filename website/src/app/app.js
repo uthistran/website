@@ -2,6 +2,7 @@ import React from 'react'
 import HeaderComponent from '../header/header'
 import DataContext from '../helper/datacontext';
 import Helper from '../helper/helper';
+import Routing from '../route/route';
 
 class App extends React.Component {
     constructor() {
@@ -15,6 +16,7 @@ class App extends React.Component {
             <DataContext.Provider value={{ config: this.state.config }}>
                 <div>
                     <HeaderComponent></HeaderComponent>
+                    <Routing></Routing>
                 </div>
             </DataContext.Provider>
         )

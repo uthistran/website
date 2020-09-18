@@ -1,12 +1,10 @@
 import React from 'react'
 import ContactHeaderComponent from '../contactheader/contactheader'
 
-class HeaderComponent extends React.Component{
-    render(){
-        return(
-            <div>
-                <ContactHeaderComponent></ContactHeaderComponent>
-            </div>
+class HeaderComponent extends React.Component {
+    render() {
+        return (
+            <ContactHeaderComponent></ContactHeaderComponent>
         )
     }
 }
