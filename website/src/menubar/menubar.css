@@ -2,6 +2,7 @@
     float: left;
     width: 100%;
     background: transparent;
+    border-bottom: 1px solid #d5d2d26e;
 }
 
 .logo{
@@ -12,6 +13,7 @@
 .routing{
     float: right;
     width: 80%;
+    padding-top: 15px;
 }
 
 .routing ul{
