@@ -1,5 +1,5 @@
 import React from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardGroup, MDBCardFooter, MDBCardHeader } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBCardHeader } from 'mdbreact';
 
 import './contactus.css'
 import MapContainer from '../mapcontainer/mapcontainer';
