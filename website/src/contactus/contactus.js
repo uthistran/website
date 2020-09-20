@@ -1,10 +1,13 @@
 import React from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardGroup, MDBCardFooter, MDBCardHeader } from 'mdbreact';
+
 import './contactus.css'
 import MapContainer from '../mapcontainer/mapcontainer';
+import DataContext from '../helper/datacontext';
 
 
 class ContactUs extends React.Component {
+    static contextType = DataContext;
     render() {
         return (
             <div className='contactus'>
@@ -30,6 +33,30 @@ class ContactUs extends React.Component {
                                     </MDBBtn>
                                 </div>
                             </form>
+                        </MDBCol>
+                    </MDBRow>
+                </MDBContainer>
+                <MDBContainer>
+                    <MDBRow>
+                        <MDBCol md='10'>
+                            <MDBCard>
+                                <MDBCardBody>
+                                    <MDBCardTitle>Location</MDBCardTitle>
+                                    <MDBCardText>{this.context.config.address}</MDBCardText>
+                                </MDBCardBody>
+                            </MDBCard>
+                            <MDBCard>
+                                <MDBCardHeader>
+                                    test
+                                </MDBCardHeader>
+                                <MDBCardBody>
+                                    <MDBCardTitle>Social Media</MDBCardTitle>
+                                    <MDBCardText>{this.context.config.facebook}</MDBCardText>
+                                </MDBCardBody>
+                                <MDBCardFooter>
+                                    test
+                                </MDBCardFooter>
+                            </MDBCard>
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>

@@ -3,4 +3,5 @@
         width: 97%;
         text-align: center;
         box-shadow: 0 2px 17px 4px rgb(167 154 154 / 28%), 0 2px 10px 0 rgb(0 0 0 / 56%);
+        float: left;
 }

@@ -1,14 +1,8 @@
 import React from 'react'
 import DataContext from '../helper/datacontext'
-// import '../helper/css/all.min.css'
 import './contactheader.css'
-// import '../helper/css/fontawesome.min.css'
 
 class ContactHeaderComponent extends React.Component {
-
-    // constructor(){
-    //     super();
-    // }
 
     static contextType = DataContext;
 
