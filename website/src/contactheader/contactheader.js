@@ -25,18 +25,18 @@ class ContactHeaderComponent extends React.Component {
                     <div className='socialmedia'>
                         <ul>
                             <li>
-                                <a href={value.config.facebook}>
+                                <a rel="noopener noreferrer" target="_blank" href={value.config.facebook}>
                                     <i className='fa-facebook'></i>
                                 </a>
 
                             </li>
                             <li>
-                                <a href={value.config.twitter}>
+                                <a rel="noopener noreferrer" target="_blank" href={value.config.twitter}>
                                     <i className='fa-twitter'></i>
                                 </a>
                             </li>
                             <li >
-                                <a href={value.config.instagram}>
+                                <a rel="noopener noreferrer" target="_blank" href={value.config.instagram}>
                                     <i className='fa-instagram'></i>
                                 </a>
                             </li>

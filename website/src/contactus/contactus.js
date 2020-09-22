@@ -1,5 +1,5 @@
 import React from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBCardHeader } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 
 import './contactus.css'
 import MapContainer from '../mapcontainer/mapcontainer';
@@ -39,23 +39,48 @@ class ContactUs extends React.Component {
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol md='10'>
-                            <MDBCard>
+                            <MDBCard className="contactusCard">
                                 <MDBCardBody>
                                     <MDBCardTitle>Location</MDBCardTitle>
                                     <MDBCardText>{this.context.config.address}</MDBCardText>
                                 </MDBCardBody>
                             </MDBCard>
-                            <MDBCard>
-                                <MDBCardHeader>
-                                    test
-                                </MDBCardHeader>
+                            <MDBCard className="contactusCard">
                                 <MDBCardBody>
                                     <MDBCardTitle>Social Media</MDBCardTitle>
-                                    <MDBCardText>{this.context.config.facebook}</MDBCardText>
+                                    <MDBCardText className='contactusCardText'>
+                                        <a rel="noopener noreferrer" target="_blank" href={this.context.config.facebook}>
+                                            <i className='fa-facebook fb'></i>
+                                        </a>
+                                    </MDBCardText>
+                                    <MDBCardText className='contactusCardText'>
+                                        <a rel="noopener noreferrer" target="_blank" href={this.context.config.twitter}>
+                                            <i className='fa-twitter tw'></i>
+                                        </a>
+                                    </MDBCardText>
+                                    <MDBCardText className='contactusCardText'>
+                                        <a rel="noopener noreferrer" target="_blank" href={this.context.config.instagram}>
+                                            <i className='fa-instagram insta'></i>
+                                        </a>
+                                    </MDBCardText>
                                 </MDBCardBody>
-                                <MDBCardFooter>
-                                    test
-                                </MDBCardFooter>
+                            </MDBCard>
+                            <MDBCard className="contactusCard">
+                                <MDBCardBody>
+                                    <MDBCardTitle>Call</MDBCardTitle>
+                                    <MDBCardText>
+                                        <a href={this.getPhoneNumber(this.context.config.phone)}>
+                                            <span className='fa fa-phone'></span>
+                                            <span className='contactusPhone'>{this.context.config.phone}</span>
+                                        </a>
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                        <a rel="noopener noreferrer" target="_blank" href={this.getWhatsAppNumber(this.context.config.phone)}>
+                                            <i className='fa-whatsapp wa'></i>
+                                            <span className='contactusPhone'>{this.context.config.phone}</span>
+                                        </a>
+                                    </MDBCardText>
+                                </MDBCardBody>
                             </MDBCard>
                         </MDBCol>
                     </MDBRow>
@@ -63,6 +88,14 @@ class ContactUs extends React.Component {
                 <MapContainer></MapContainer>
             </div>
         )
+    }
+
+    getPhoneNumber(value) {
+        return "tel:" + value;
+    }
+
+    getWhatsAppNumber(value) {
+        return "https://web.whatsapp.com/send?phone=" + value
     }
 }
 export default ContactUs;
