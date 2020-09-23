@@ -64,7 +64,12 @@ class ContactUs extends React.Component {
                                     </MDBCardText>
                                 </MDBCardBody>
                             </MDBCard>
-                            <MDBCard className="contactusCard">
+                            
+                        </MDBCol>
+                    </MDBRow>
+                    <MDBRow>
+                        <MDBCol md='5'>
+                        <MDBCard className="contactusCard">
                                 <MDBCardBody>
                                     <MDBCardTitle>Call</MDBCardTitle>
                                     <MDBCardText>
@@ -77,6 +82,19 @@ class ContactUs extends React.Component {
                                         <a rel="noopener noreferrer" target="_blank" href={this.getWhatsAppNumber(this.context.config.phone)}>
                                             <i className='fa-whatsapp wa'></i>
                                             <span className='contactusPhone'>{this.context.config.phone}</span>
+                                        </a>
+                                    </MDBCardText>
+                                </MDBCardBody>
+                            </MDBCard>
+                        </MDBCol>
+                        <MDBCol md='5'>
+                        <MDBCard className="contactusCard">
+                                <MDBCardBody>
+                                    <MDBCardTitle>E-Mail</MDBCardTitle>
+                                    <MDBCardText>
+                                        <a href={this.getMail(this.context.config.email)}>
+                                            <span className='fa fa-envelope'></span>
+                                            <span className='contactusPhone'>{this.context.config.email}</span>
                                         </a>
                                     </MDBCardText>
                                 </MDBCardBody>
@@ -95,6 +113,10 @@ class ContactUs extends React.Component {
 
     getWhatsAppNumber(value) {
         return "https://web.whatsapp.com/send?phone=" + value
+    }
+
+    getMail(value){
+        return "mailto:" + value;
     }
 }
 export default ContactUs;
