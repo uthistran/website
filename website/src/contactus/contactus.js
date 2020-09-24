@@ -64,12 +64,12 @@ class ContactUs extends React.Component {
                                     </MDBCardText>
                                 </MDBCardBody>
                             </MDBCard>
-                            
+
                         </MDBCol>
                     </MDBRow>
                     <MDBRow>
                         <MDBCol md='5'>
-                        <MDBCard className="contactusCard">
+                            <MDBCard className="contactusCard">
                                 <MDBCardBody>
                                     <MDBCardTitle>Call</MDBCardTitle>
                                     <MDBCardText>
@@ -88,7 +88,7 @@ class ContactUs extends React.Component {
                             </MDBCard>
                         </MDBCol>
                         <MDBCol md='5'>
-                        <MDBCard className="contactusCard">
+                            <MDBCard className="contactusCard">
                                 <MDBCardBody>
                                     <MDBCardTitle>E-Mail</MDBCardTitle>
                                     <MDBCardText>
@@ -115,7 +115,7 @@ class ContactUs extends React.Component {
         return "https://web.whatsapp.com/send?phone=" + value
     }
 
-    getMail(value){
+    getMail(value) {
         return "mailto:" + value;
     }
 }
