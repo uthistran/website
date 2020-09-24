@@ -1,0 +1,60 @@
+.contactus {
+    width: 100%;
+    float: left;
+    padding-left: 30px;
+    margin-top: 15px;
+}
+
+.contactus .header{
+    text-transform: uppercase;
+}
+
+.contactus .container{
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 50%;
+    border-right: 1px solid #d5d2d2;
+    float: left;
+}
+
+.contactusCard{
+    margin-bottom: 10px;
+    font-family: brandfont ;
+}
+
+.contactusCard .contactusCardText{
+    float: left;
+    margin-right: 30px;
+}
+
+.contactusCard .contactusPhone{
+    display: inline-block;
+    margin-left: 13px;
+    color: #000;
+}
+
+.contactusCard a i{
+    font-style: normal;
+    color: #000;
+}
+
+@font-face {
+    font-family: 'brandfont';
+    src: url('/webfonts/fa-brands-400.woff') format('woff');
+  }
+
+  .contactusCard a .wa{
+      color: green;
+  }
+
+  .contactusCard a .fb{
+    color: #3b5998;
+  }
+
+  .contactusCard a .tw {
+      color : #1da1f2
+  }
+
+  .contactusCard a .insta{
+      color: #bc2a8d;
+  }

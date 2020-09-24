@@ -1,0 +1,24 @@
+.productTreeView{
+    width: 30%;
+    float: left;
+}
+
+.productTreeView .productTreeList{
+    border: 1px solid #d5d2d26e;
+    border-radius: 26px;
+    box-shadow: 3px 3px 13px 0px #d5d2d26e;
+}
+
+.productTreeView .productTreeList .productTreeItem{
+    border: none;
+    border-bottom: 1px solid #d5d2d2;
+    border-radius: 26px;
+}
+
+.productTreeView .productTreeList .productTreeItem:last-child{
+    border-bottom: none;
+}
+
+.productTreeView .productTreeList .productTreeItem .productTreeBadge{
+    background-color: #3a3838b3;
+}
