@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './menubar.css'
 
 class MenuBar extends React.Component {
@@ -10,6 +10,23 @@ class MenuBar extends React.Component {
             activeLink: 'Home'
         }
         this.handleMenuClick = this.handleMenuClick.bind(this);
+    }
+
+    pathmapping = {
+        "/" : "Home",
+        "/about" : "About",
+        "/product" : "Product",
+        "/contact" : "Contact"
+    }
+
+    componentDidMount(){
+        this.getActiveLinkOnRefresh(this.props.location.pathname);
+    }
+
+    getActiveLinkOnRefresh(pathname){
+        this.setState({
+            activeLink : this.pathmapping[pathname]
+        })
     }
 
     handleMenuClick(id) {
@@ -43,4 +60,4 @@ class MenuBar extends React.Component {
     }
 }
 
-export default MenuBar;
+export default withRouter(MenuBar);
