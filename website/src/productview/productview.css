@@ -1,5 +1,16 @@
 .productView{
     width: 70%;
     float: left;
-    border: 1px solid green;
+}
+
+.productView .productViewCard{
+    width: calc(100%/3.5);
+    float: left;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.productView .productViewCard:hover{
+    box-shadow: 0 2px 5px 0 rgb(0, 0, 0), 0 2px 10px 0 rgb(0, 0, 0);
+    cursor: pointer;
 }
