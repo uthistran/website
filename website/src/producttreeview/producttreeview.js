@@ -26,7 +26,7 @@ class ProductTreeView extends React.Component {
         if(productDetails){
             element = productDetails.map((product, index) => {
                 return (
-                    <MDBListGroupItem key={index} className="d-flex justify-content-between align-items-center productTreeItem">
+                    <MDBListGroupItem onClick={() => this.props.onTreeViewClick(product.mainproduct)} key={index} className="d-flex justify-content-between align-items-center productTreeItem">
                         {product.mainproduct}
                         <MDBBadge className='productTreeBadge' color="gray-dark" pill>{product.subproducts.length}</MDBBadge>
                     </MDBListGroupItem>

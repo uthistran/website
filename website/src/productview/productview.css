@@ -8,9 +8,48 @@
     float: left;
     margin-left: 30px;
     margin-bottom: 30px;
+    height: 400px;
 }
 
 .productView .productViewCard:hover{
-    box-shadow: 0 2px 5px 0 rgba(5, 67, 238, 0.637), 0 2px 10px 0 rgba(4, 15, 168, 0.788);
+    box-shadow: 3px 3px 13px 0px #03095a88;
     cursor: pointer;
+}
+
+.productView .productViewCard .productName{
+    font-size: 19px;
+    font-weight: bold;
+    height: 16%;
+}
+
+.productView .productViewCard .productImageHolder{
+    height: 50%;
+}
+
+.productView .productViewCard .productImageHolder .productImage{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.productView .productViewCard .price{
+    text-align: center;
+}
+
+.productView .productViewCard .price .originalPrice{
+    font-size: 14px;
+    text-decoration-line: line-through;
+    text-decoration-color: red;
+}
+
+.productView .productViewCard .price .discountedPrice{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.productView .productViewCard .addBtn{
+    border-radius: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
