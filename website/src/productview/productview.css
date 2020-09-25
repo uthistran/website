@@ -11,6 +11,6 @@
 }
 
 .productView .productViewCard:hover{
-    box-shadow: 0 2px 5px 0 rgb(0, 0, 0), 0 2px 10px 0 rgb(0, 0, 0);
+    box-shadow: 0 2px 5px 0 rgba(5, 67, 238, 0.637), 0 2px 10px 0 rgba(4, 15, 168, 0.788);
     cursor: pointer;
 }

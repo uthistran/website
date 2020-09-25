@@ -1,6 +1,6 @@
 import React from 'react'
 import './productview.css'
-import { MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardText } from 'mdbreact';
 
 class ProductView extends React.Component {
     render() {
@@ -20,6 +20,9 @@ class ProductView extends React.Component {
                         <MDBCardText>
                             {product.name}
                         </MDBCardText>
+                        <MDBCardImage src='/images/atombomb.png'>
+
+                        </MDBCardImage>
                         <div>{product.price}</div>
                         <div>{product.discount}</div>
                     </MDBCardBody>
