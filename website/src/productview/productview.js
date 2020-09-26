@@ -2,19 +2,42 @@ import React from 'react'
 import './productview.css'
 import { MDBCard, MDBCardBody, MDBCardText, MDBBtn } from 'mdbreact';
 import { numberFormat } from '../helper/formatnumber';
+import ProductController from '../productcontroller/productcontroller';
 
 class ProductView extends React.Component {
+
+    constructor(){
+        super();
+        this.state = {
+            currentSort : 'Sort by popularity'
+        }
+        this.handleClickDropDown = this.handleClickDropDown.bind(this);
+    }
+
+    objectReference = {
+        "Sort by popularity" : this.getSortByPopularity,
+        "Sort by latest" : this.getSortByPopularity,
+        "Sort by price : low to high" : this.getSortPriceLowToHigh,
+        "Sort by price : high to low" : this.getSortPriceHighToLow
+    }
+    handleClickDropDown(value){
+        this.setState({
+            currentSort : value
+        })
+    }
+
     render() {
         return (
             <div className='productView'>
+                <ProductController currentSort={this.state.currentSort} handleClick={this.handleClickDropDown}></ProductController>
                 {this.getProductList()}
             </div>
         )
     }
 
     getProductList() {
-
-        var element = this.props.products.map((product, index) => {
+        var displayList = this.getSortedList(this.props.products);
+        var element = displayList.map((product, index) => {
             return (
                 <MDBCard md="3" key={index} className="productViewCard">
                     <MDBCardBody>
@@ -42,11 +65,39 @@ class ProductView extends React.Component {
         return element;
     }
 
+    getSortedList(products){
+        return this.objectReference[this.state.currentSort](products);
+    }
+
+    getSortByPopularity(products){
+        return products;
+    }
+
+    getSortPriceHighToLow(products){
+        // products.sort(
+        //     (a,b) => (this.getDiscountedPriceWithoutFormatting(a.price, a.discount)  > this.getDiscountedPriceWithoutFormatting(b.price, b.discount) ) ? 1 : ((this.getDiscountedPriceWithoutFormatting(b.price, b.discount) > this.getDiscountedPriceWithoutFormatting(a.price, a.discount)) ? -1 : 0)); 
+        products.sort(
+             (a,b) => (Number(a.price) < Number(b.price)) ? 1 : ((Number(b.price) < Number(a.price)) ? -1 : 0)); 
+        return products;
+    }
+
+    getSortPriceLowToHigh(products){
+        products.sort(
+            (a,b) => (Number(a.price) > Number(b.price)) ? 1 : ((Number(b.price) > Number(a.price)) ? -1 : 0)); 
+       return products;
+    }
+
     getDiscountedPrice(price, discount) {
         var priceinNum = Number(price);
         var discountinNum = Number(discount.replace('%', ''))
         var discountedPrice = (priceinNum / 100) * discountinNum
         return numberFormat(discountedPrice.toString());
+    }
+
+    getDiscountedPriceWithoutFormatting(price, discount){
+        var priceinNum = Number(price);
+        var discountinNum = Number(discount.replace('%', ''))
+        return (priceinNum / 100) * discountinNum
     }
 
     getImageSrc(value) {

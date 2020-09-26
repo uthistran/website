@@ -37,8 +37,8 @@ class ProductTreeView extends React.Component {
                 )
             })
             if (totalsubproducts > 0) {
-                let all = <MDBListGroupItem onClick={() => this.props.onTreeViewClick('all')} className={this.props.activeView === 'all' ? activeClass : normalClass}>
-                    All
+                let all = <MDBListGroupItem key='alllist' onClick={() => this.props.onTreeViewClick('all')} className={this.props.activeView === 'all' ? activeClass : normalClass}>
+                    Show All
                     <MDBBadge className='productTreeBadge' color="gray-dark" pill>{totalsubproducts}</MDBBadge>
                 </MDBListGroupItem>
 
