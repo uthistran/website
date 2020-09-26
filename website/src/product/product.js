@@ -7,7 +7,8 @@ class Product extends React.Component {
     constructor() {
         super();
         this.state = {
-            productviewlist: []
+            productviewlist: [],
+            activeView : ''
         }
         this.handleTreeViewClick = this.handleTreeViewClick.bind(this)
     }
@@ -15,8 +16,8 @@ class Product extends React.Component {
     render() {
         return (
             <div>
-                <ProductTreeView onTreeViewClick={this.handleTreeViewClick}></ProductTreeView>
-                <ProductView products={this.state.productviewlist}></ProductView>
+                <ProductTreeView activeView={this.state.activeView} onTreeViewClick={this.handleTreeViewClick}></ProductTreeView>
+                <ProductView products={this.state.productviewlist} ></ProductView>
             </div>
         )
     }
@@ -31,7 +32,8 @@ class Product extends React.Component {
         }
         if(productList && productList[0]){
             this.setState({
-                productviewlist: productList[0].subproducts
+                productviewlist: productList[0].subproducts,
+                activeView : value
             })
         }
     }

@@ -23,10 +23,12 @@ class ProductTreeView extends React.Component {
 
     getProduct(productDetails) {
         let element = null;
+        let normalClass = "d-flex justify-content-between align-items-center productTreeItem";
+        let activeClass = "d-flex justify-content-between align-items-center productTreeItem selected"
         if(productDetails){
             element = productDetails.map((product, index) => {
                 return (
-                    <MDBListGroupItem onClick={() => this.props.onTreeViewClick(product.mainproduct)} key={index} className="d-flex justify-content-between align-items-center productTreeItem">
+                    <MDBListGroupItem onClick={() => this.props.onTreeViewClick(product.mainproduct)} key={index} className={product.mainproduct === this.props.activeView ? activeClass : normalClass}>
                         {product.mainproduct}
                         <MDBBadge className='productTreeBadge' color="gray-dark" pill>{product.subproducts.length}</MDBBadge>
                     </MDBListGroupItem>
