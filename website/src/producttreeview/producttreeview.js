@@ -25,8 +25,10 @@ class ProductTreeView extends React.Component {
         let element = null;
         let normalClass = "d-flex justify-content-between align-items-center productTreeItem";
         let activeClass = "d-flex justify-content-between align-items-center productTreeItem selected"
-        if(productDetails){
+        let totalsubproducts = 0;
+        if (productDetails) {
             element = productDetails.map((product, index) => {
+                totalsubproducts += product.subproducts.length;
                 return (
                     <MDBListGroupItem onClick={() => this.props.onTreeViewClick(product.mainproduct)} key={index} className={product.mainproduct === this.props.activeView ? activeClass : normalClass}>
                         {product.mainproduct}
@@ -34,6 +36,16 @@ class ProductTreeView extends React.Component {
                     </MDBListGroupItem>
                 )
             })
+            if (totalsubproducts > 0) {
+                let all = <MDBListGroupItem onClick={() => this.props.onTreeViewClick('all')} className={this.props.activeView === 'all' ? activeClass : normalClass}>
+                    All
+                    <MDBBadge className='productTreeBadge' color="gray-dark" pill>{totalsubproducts}</MDBBadge>
+                </MDBListGroupItem>
+
+                element.splice(0, 0, all)
+            }
+
+
         }
         return element
     }

@@ -8,7 +8,7 @@ class Product extends React.Component {
         super();
         this.state = {
             productviewlist: [],
-            activeView : ''
+            activeView: 'all'
         }
         this.handleTreeViewClick = this.handleTreeViewClick.bind(this)
     }
@@ -22,23 +22,32 @@ class Product extends React.Component {
         )
     }
 
-    handleTreeViewClick(value){
-        let product = this.context.product;
-        var productList;
-        if (product && product.ProductDetails) {
-            productList = product.ProductDetails.filter((item) => {
-                return(item.mainproduct === value)
-            })
+    handleTreeViewClick(value) {
+        if (value === 'all') {
+            this.loadAllSubProducts();
         }
-        if(productList && productList[0]){
-            this.setState({
-                productviewlist: productList[0].subproducts,
-                activeView : value
-            })
+        else {
+            let product = this.context.product;
+            var productList;
+            if (product && product.ProductDetails) {
+                productList = product.ProductDetails.filter((item) => {
+                    return (item.mainproduct === value)
+                })
+            }
+            if (productList && productList[0]) {
+                this.setState({
+                    productviewlist: productList[0].subproducts,
+                    activeView: value
+                })
+            }
         }
     }
 
     componentDidMount() {
+        this.loadAllSubProducts();
+    }
+
+    loadAllSubProducts() {
         let product = this.context.product;
         var productList;
         if (product && product.ProductDetails) {
@@ -52,7 +61,8 @@ class Product extends React.Component {
             })
             productList = productList.flat();
             this.setState({
-                productviewlist: productList
+                productviewlist: productList,
+                activeView: 'all'
             })
         }
     }
