@@ -6,30 +6,35 @@ import ProductController from '../productcontroller/productcontroller';
 
 class ProductView extends React.Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
-            currentSort : 'Sort by popularity'
+            currentSort: 'popularity',
+            currentView: 'all',
+            currentPage: 1
         }
         this.handleClickDropDown = this.handleClickDropDown.bind(this);
+        this.handleViewNumChange = this.handleViewNumChange.bind(this);
     }
 
     objectReference = {
-        "Sort by popularity" : this.getSortByPopularity,
-        "Sort by latest" : this.getSortByPopularity,
-        "Sort by price : low to high" : this.getSortPriceLowToHigh,
-        "Sort by price : high to low" : this.getSortPriceHighToLow
+        "popularity": this.getSortByPopularity,
+        "latest": this.getSortByPopularity,
+        "lowtohigh": this.getSortPriceLowToHigh,
+        "hightolow": this.getSortPriceHighToLow
     }
-    handleClickDropDown(value){
-        this.setState({
-            currentSort : value
-        })
+    handleClickDropDown(event) {
+        this.setState({ currentSort: event.target.value });
+    }
+
+    handleViewNumChange(event) {
+        this.setState({ currentView: event.target.value })
     }
 
     render() {
         return (
             <div className='productView'>
-                <ProductController currentSort={this.state.currentSort} handleClick={this.handleClickDropDown}></ProductController>
+                <ProductController currentSort={this.state.currentSort} handleClick={this.handleClickDropDown} handleViewChange={this.handleViewNumChange}></ProductController>
                 {this.getProductList()}
             </div>
         )
@@ -37,6 +42,7 @@ class ProductView extends React.Component {
 
     getProductList() {
         var displayList = this.getSortedList(this.props.products);
+        displayList = this.getProductsBasedOnViewCount(displayList);
         var element = displayList.map((product, index) => {
             return (
                 <MDBCard md="3" key={index} className="productViewCard">
@@ -59,32 +65,39 @@ class ProductView extends React.Component {
                     </MDBCardBody>
                 </MDBCard>
             )
-        })
-
-
+        });
         return element;
     }
 
-    getSortedList(products){
+    getProductsBasedOnViewCount(products) {
+        let currentPage = this.state.currentPage;
+        let viewCount = this.state.currentView;
+        if (viewCount === 'all') {
+            return products
+        }
+        return products.slice((currentPage - 1) * 9, (Number(this.state.currentView) * currentPage))
+    }
+
+    getSortedList(products) {
         return this.objectReference[this.state.currentSort](products);
     }
 
-    getSortByPopularity(products){
+    getSortByPopularity(products) {
         return products;
     }
 
-    getSortPriceHighToLow(products){
+    getSortPriceHighToLow(products) {
         // products.sort(
         //     (a,b) => (this.getDiscountedPriceWithoutFormatting(a.price, a.discount)  > this.getDiscountedPriceWithoutFormatting(b.price, b.discount) ) ? 1 : ((this.getDiscountedPriceWithoutFormatting(b.price, b.discount) > this.getDiscountedPriceWithoutFormatting(a.price, a.discount)) ? -1 : 0)); 
         products.sort(
-             (a,b) => (Number(a.price) < Number(b.price)) ? 1 : ((Number(b.price) < Number(a.price)) ? -1 : 0)); 
+            (a, b) => (Number(a.price) < Number(b.price)) ? 1 : ((Number(b.price) < Number(a.price)) ? -1 : 0));
         return products;
     }
 
-    getSortPriceLowToHigh(products){
+    getSortPriceLowToHigh(products) {
         products.sort(
-            (a,b) => (Number(a.price) > Number(b.price)) ? 1 : ((Number(b.price) > Number(a.price)) ? -1 : 0)); 
-       return products;
+            (a, b) => (Number(a.price) > Number(b.price)) ? 1 : ((Number(b.price) > Number(a.price)) ? -1 : 0));
+        return products;
     }
 
     getDiscountedPrice(price, discount) {
@@ -94,7 +107,7 @@ class ProductView extends React.Component {
         return numberFormat(discountedPrice.toString());
     }
 
-    getDiscountedPriceWithoutFormatting(price, discount){
+    getDiscountedPriceWithoutFormatting(price, discount) {
         var priceinNum = Number(price);
         var discountinNum = Number(discount.replace('%', ''))
         return (priceinNum / 100) * discountinNum

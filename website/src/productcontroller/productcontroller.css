@@ -1,3 +1,9 @@
 .productController{
     margin-left: 30px;
+    margin-top: 10px;
+}
+
+.showviewDropDown{
+    display: inline;
+    margin-left: 20px;
 }

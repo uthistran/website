@@ -1,11 +1,9 @@
-.dropDownMain{
-    width : 25%
-}
-
-.dropDownMain .toggle{
-    width: 100%;
-}
-
-.dropDownMain .menu{
-    width: 100%;
+.customDropdown{
+    border: 1px solid #d5d2d2;
+    font-size: 18px;
+    color: #000;
+    background-color: #eee;
+    border-radius: 19px;
+    outline: none;
+    text-align-last: center;
 }

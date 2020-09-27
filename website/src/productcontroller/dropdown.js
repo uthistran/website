@@ -1,24 +1,22 @@
 import React from "react";
-import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import './dropdown.css'
 
-class ProductDropdown extends React.Component{
-    render(){
-        return (
-            <MDBDropdown className='dropDownMain'>
-              <MDBDropdownToggle caret color="indigo" className='toggle'>
-              {this.props.currentSort}
-              </MDBDropdownToggle>
-              <MDBDropdownMenu basic className='menu'>
-                <MDBDropdownItem onClick={() => this.props.handleClickDropDown('Sort by popularity')}>Sort by popularity</MDBDropdownItem>
-                <MDBDropdownItem onClick={() => this.props.handleClickDropDown('Sort by latest')}>Sort by latest</MDBDropdownItem>
-                <MDBDropdownItem onClick={() => this.props.handleClickDropDown('Sort by price : low to high')}>Sort by price : low to high</MDBDropdownItem>
-                <MDBDropdownItem onClick={() => this.props.handleClickDropDown('Sort by price : high to low')}>Sort by price : high to low</MDBDropdownItem>
-              </MDBDropdownMenu>
-            </MDBDropdown>
-          );
-    }
+class ProductDropdown extends React.Component {
+  render() {
+    return (
+      <label>
+        Sort By:
+        <select className='customDropdown' value={this.props.currentSort} onChange={this.props.handleClickDropDown}>
+          <option value="popularity">Popularity</option>
+          <option value="latest">Latest</option>
+          <option value="lowtohigh">Price : low to high</option>
+          <option value="hightolow">Price : high to low</option>
+        </select>
+      </label>
+
+    );
+  }
 }
-  
+
 
 export default ProductDropdown;
