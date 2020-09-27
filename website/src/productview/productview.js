@@ -11,10 +11,12 @@ class ProductView extends React.Component {
         this.state = {
             currentSort: 'popularity',
             currentView: 'all',
-            currentPage: 1
+            currentPage: 1,
+            totalPage :1
         }
         this.handleClickDropDown = this.handleClickDropDown.bind(this);
         this.handleViewNumChange = this.handleViewNumChange.bind(this);
+        this.currentPageChangeHandler = this.currentPageChangeHandler.bind(this);
     }
 
     objectReference = {
@@ -31,10 +33,14 @@ class ProductView extends React.Component {
         this.setState({ currentView: event.target.value })
     }
 
+    currentPageChangeHandler(event){
+        this.setState({currentPage : event.target.value})
+    }
+
     render() {
         return (
             <div className='productView'>
-                <ProductController currentSort={this.state.currentSort} handleClick={this.handleClickDropDown} handleViewChange={this.handleViewNumChange}></ProductController>
+                <ProductController onCurrentPageChange={this.currentPageChangeHandler} currentPage={this.state.currentPage} totalPage={this.state.totalPage} currentSort={this.state.currentSort} handleClick={this.handleClickDropDown} handleViewChange={this.handleViewNumChange}></ProductController>
                 {this.getProductList()}
             </div>
         )

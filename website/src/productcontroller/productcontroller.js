@@ -15,6 +15,15 @@ class ProductController extends React.Component {
                         <option value="36">Show 36</option>
                     </select>
                 </div>
+                <div className='pageNavigation'>
+                    <span>
+                        <i className="fas fa-arrow-left"></i>
+                    </span>
+                    <input type="text" className='currentPageInput' value={this.props.currentPage} onChange={this.props.onCurrentPageChange}></input>
+                    <span>&#47;</span>
+                    <input type="text" className='totalPageInput' readOnly defaultValue={this.props.totalPage}></input>
+                    <span><i className="fas fa-arrow-right"></i></span>
+                </div>
             </div>
         )
     }
