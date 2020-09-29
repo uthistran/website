@@ -45,8 +45,8 @@ class ProductView extends React.Component {
         })
     }
 
-    currentPageChangeHandler(event) {
-        this.setState({ currentPage: event.target.value })
+    currentPageChangeHandler(value) {
+        this.setState({ currentPage: value })
     }
 
     render() {

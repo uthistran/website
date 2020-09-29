@@ -3,6 +3,26 @@ import ProductDropdown from './dropdown'
 import './productcontroller.css'
 
 class ProductController extends React.Component {
+    constructor(){
+        super();
+        this.input = React.createRef();
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+    }
+
+    handleKeyPress(event){
+        if (event.key === 'Enter') {
+            let inputVal = Number(this.input.current.value);
+            if(!isNaN(inputVal) && inputVal <= this.props.totalPage && inputVal !== 0){
+                this.props.onCurrentPageChange(inputVal);
+            }else{
+                this.input.current.value = this.props.currentPage;
+            }
+          }
+    }
+
+    componentDidMount(){
+        this.input.current.value = this.props.currentPage;
+    }
     render() {
         return (
             <div className='productController'>
@@ -19,7 +39,7 @@ class ProductController extends React.Component {
                     <span>
                         <i className="fas fa-arrow-left"></i>
                     </span>
-                    <input type="text" className='currentPageInput' value={this.props.currentPage} onChange={this.props.onCurrentPageChange}></input>
+                    <input type="text" className='currentPageInput' ref={this.input} onKeyPress={this.handleKeyPress}></input>
                     <span>&#47;</span>
                     <span className='totalPageInput'>{this.props.totalPage}</span>
                     <span><i className="fas fa-arrow-right"></i></span>
