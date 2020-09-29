@@ -20,7 +20,7 @@ class ProductController extends React.Component {
           }
     }
 
-    componentDidMount(){
+    componentDidUpdate(){
         this.input.current.value = this.props.currentPage;
     }
     render() {

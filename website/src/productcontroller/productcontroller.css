@@ -30,3 +30,9 @@
     border: 1px solid;
     text-align: center;
 }    
+
+
+.disableArrow{
+    opacity: 0.3;
+    pointer-events: none ;
+}

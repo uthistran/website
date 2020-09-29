@@ -26,7 +26,7 @@ class ProductView extends React.Component {
         "hightolow": this.getSortPriceHighToLow
     }
     handleClickDropDown(event) {
-        this.setState({ currentSort: event.target.value });
+        this.setState({ currentSort: event.target.value, currentPage: 1 });
     }
 
     handleViewNumChange(event) {
@@ -41,7 +41,8 @@ class ProductView extends React.Component {
 
         this.setState({
             currentView: event.target.value,
-            totalPage: calculatedtotalPage
+            totalPage: calculatedtotalPage,
+            currentPage: 1
         })
     }
 
