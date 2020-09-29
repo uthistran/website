@@ -12,7 +12,7 @@ class ProductView extends React.Component {
             currentSort: 'popularity',
             currentView: 'all',
             currentPage: 1,
-            totalPage :1
+            totalPage: 1
         }
         this.handleClickDropDown = this.handleClickDropDown.bind(this);
         this.handleViewNumChange = this.handleViewNumChange.bind(this);
@@ -30,11 +30,23 @@ class ProductView extends React.Component {
     }
 
     handleViewNumChange(event) {
-        this.setState({ currentView: event.target.value })
+        let productsCount = this.props.products.length;
+        let calculatedtotalPage
+        if (event.target.value === 'all') {
+            calculatedtotalPage = 1;
+        }
+        else {
+            calculatedtotalPage = Math.ceil(productsCount / Number(event.target.value));
+        }
+
+        this.setState({
+            currentView: event.target.value,
+            totalPage: calculatedtotalPage
+        })
     }
 
-    currentPageChangeHandler(event){
-        this.setState({currentPage : event.target.value})
+    currentPageChangeHandler(event) {
+        this.setState({ currentPage: event.target.value })
     }
 
     render() {

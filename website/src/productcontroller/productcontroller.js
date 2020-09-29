@@ -21,7 +21,7 @@ class ProductController extends React.Component {
                     </span>
                     <input type="text" className='currentPageInput' value={this.props.currentPage} onChange={this.props.onCurrentPageChange}></input>
                     <span>&#47;</span>
-                    <input type="text" className='totalPageInput' readOnly defaultValue={this.props.totalPage}></input>
+                    <span className='totalPageInput'>{this.props.totalPage}</span>
                     <span><i className="fas fa-arrow-right"></i></span>
                 </div>
             </div>
