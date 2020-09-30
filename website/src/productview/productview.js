@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import './productview.css'
 import { MDBCard, MDBCardBody, MDBCardText, MDBBtn } from 'mdbreact';
 import { numberFormat } from '../helper/formatnumber';
@@ -6,54 +6,17 @@ import ProductController from '../productcontroller/productcontroller';
 
 class ProductView extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            currentSort: 'popularity',
-            currentView: 'all',
-            currentPage: 1,
-            totalPage: 1
-        }
-        this.handleClickDropDown = this.handleClickDropDown.bind(this);
-        this.handleViewNumChange = this.handleViewNumChange.bind(this);
-        this.currentPageChangeHandler = this.currentPageChangeHandler.bind(this);
-    }
-
     objectReference = {
         "popularity": this.getSortByPopularity,
         "latest": this.getSortByPopularity,
         "lowtohigh": this.getSortPriceLowToHigh,
         "hightolow": this.getSortPriceHighToLow
     }
-    handleClickDropDown(event) {
-        this.setState({ currentSort: event.target.value, currentPage: 1 });
-    }
-
-    handleViewNumChange(event) {
-        let productsCount = this.props.products.length;
-        let calculatedtotalPage
-        if (event.target.value === 'all') {
-            calculatedtotalPage = 1;
-        }
-        else {
-            calculatedtotalPage = Math.ceil(productsCount / Number(event.target.value));
-        }
-
-        this.setState({
-            currentView: event.target.value,
-            totalPage: calculatedtotalPage,
-            currentPage: 1
-        })
-    }
-
-    currentPageChangeHandler(value) {
-        this.setState({ currentPage: value })
-    }
-
+    
     render() {
         return (
             <div className='productView'>
-                <ProductController onCurrentPageChange={this.currentPageChangeHandler} currentPage={this.state.currentPage} totalPage={this.state.totalPage} currentSort={this.state.currentSort} handleClick={this.handleClickDropDown} handleViewChange={this.handleViewNumChange}></ProductController>
+                <ProductController onCurrentPageChange={this.props.onCurrentPageChange} currentPage={this.props.currentPage} totalPage={this.props.totalPage} currentSort={this.props.currentSort} handleClick={this.props.handleClick} handleViewChange={this.props.handleViewChange}></ProductController>
                 {this.getProductList()}
             </div>
         )
@@ -64,41 +27,43 @@ class ProductView extends React.Component {
         displayList = this.getProductsBasedOnViewCount(displayList);
         var element = displayList.map((product, index) => {
             return (
-                <MDBCard md="3" key={index} className="productViewCard">
-                    <MDBCardBody>
-                        <MDBCardText className='productName'>
-                            {product.name}
-                        </MDBCardText>
-                        <div className='productImageHolder'>
-                            <img className='productImage' alt={product.name} src={this.getImageSrc(product.image)} />
-                        </div>
+                <Suspense key={index}  fallback={<div>Loading...</div>}>
+                    <MDBCard md="3" className="productViewCard">
+                        <MDBCardBody>
+                            <MDBCardText className='productName'>
+                                {product.name}
+                            </MDBCardText>
+                            <div className='productImageHolder'>
+                                <img className='productImage' alt={product.name} src={this.getImageSrc(product.image)} />
+                            </div>
 
-                        <div className='price'>
-                            <span className='originalPrice'>
-                                {numberFormat(product.price)}
-                            </span>
-                            <span className='discountedPrice'>{this.getDiscountedPrice(product.price, product.discount)}</span>
-                        </div>
-                        <div>{product.discount}</div>
-                        <MDBBtn className='addBtn' gradient="blue">Add</MDBBtn>
-                    </MDBCardBody>
-                </MDBCard>
+                            <div className='price'>
+                                <span className='originalPrice'>
+                                    {numberFormat(product.price)}
+                                </span>
+                                <span className='discountedPrice'>{this.getDiscountedPrice(product.price, product.discount)}</span>
+                            </div>
+                            <div>{product.discount}</div>
+                            <MDBBtn className='addBtn' gradient="blue">Add</MDBBtn>
+                        </MDBCardBody>
+                    </MDBCard>
+                </Suspense>
             )
         });
         return element;
     }
 
     getProductsBasedOnViewCount(products) {
-        let currentPage = this.state.currentPage;
-        let viewCount = this.state.currentView;
+        let currentPage = this.props.currentPage;
+        let viewCount = this.props.currentView;
         if (viewCount === 'all') {
             return products
         }
-        return products.slice((currentPage - 1) * 9, (Number(this.state.currentView) * currentPage))
+        return products.slice((currentPage - 1) * 9, (Number(this.props.currentView) * currentPage))
     }
 
     getSortedList(products) {
-        return this.objectReference[this.state.currentSort](products);
+        return this.objectReference[this.props.currentSort](products);
     }
 
     getSortByPopularity(products) {
