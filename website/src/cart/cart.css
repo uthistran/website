@@ -1,5 +1,5 @@
 .cartIcon{
-    position: absolute;
+    position: fixed;
     bottom: 70px;
     left: 70px;
     border: 1px solid  #d5d2d26e;
