@@ -1,8 +1,7 @@
 import React, { Suspense } from 'react'
 import './productview.css'
-import { MDBCard, MDBCardBody, MDBCardText, MDBBtn } from 'mdbreact';
-import { numberFormat } from '../helper/formatnumber';
 import ProductController from '../productcontroller/productcontroller';
+import ProductCard from './productcard';
 
 class ProductView extends React.Component {
 
@@ -28,25 +27,7 @@ class ProductView extends React.Component {
         var element = displayList.map((product, index) => {
             return (
                 <Suspense key={index}  fallback={<div>Loading...</div>}>
-                    <MDBCard md="3" className="productViewCard">
-                        <MDBCardBody>
-                            <MDBCardText className='productName'>
-                                {product.name}
-                            </MDBCardText>
-                            <div className='productImageHolder'>
-                                <img className='productImage' alt={product.name} src={this.getImageSrc(product.image)} />
-                            </div>
-
-                            <div className='price'>
-                                <span className='originalPrice'>
-                                    {numberFormat(product.price)}
-                                </span>
-                                <span className='discountedPrice'>{this.getDiscountedPrice(product.price, product.discount)}</span>
-                            </div>
-                            <div>{product.discount}</div>
-                            <MDBBtn className='addBtn' gradient="blue">Add</MDBBtn>
-                        </MDBCardBody>
-                    </MDBCard>
+                   <ProductCard product={product}></ProductCard>
                 </Suspense>
             )
         });
@@ -84,22 +65,13 @@ class ProductView extends React.Component {
         return products;
     }
 
-    getDiscountedPrice(price, discount) {
-        var priceinNum = Number(price);
-        var discountinNum = Number(discount.replace('%', ''))
-        var discountedPrice = (priceinNum / 100) * discountinNum
-        return numberFormat(discountedPrice.toString());
-    }
-
     getDiscountedPriceWithoutFormatting(price, discount) {
         var priceinNum = Number(price);
         var discountinNum = Number(discount.replace('%', ''))
         return (priceinNum / 100) * discountinNum
     }
 
-    getImageSrc(value) {
-        return '/images/' + value;
-    }
+    
 }
 
 export default ProductView
