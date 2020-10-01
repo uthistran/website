@@ -1,8 +1,10 @@
 import React from 'react'
 import { MDBCard, MDBCardBody, MDBCardText, MDBBtn } from 'mdbreact';
 import { numberFormat } from '../helper/formatnumber';
+import DataContext from '../helper/datacontext';
 
 class ProductCard extends React.Component {
+    static contextType = DataContext;
     render() {
         let product = this.props.product;
         return (
@@ -30,10 +32,14 @@ class ProductCard extends React.Component {
                         </div>
 
                     </div>
-                    <MDBBtn className='addBtn' gradient="blue">Add to Enquire</MDBBtn>
+                    <MDBBtn className='addBtn' gradient="blue" onClick={() => this.handleAddProduct(product)}>Add to Enquire</MDBBtn>
                 </MDBCardBody>
             </MDBCard>
         )
+    }
+
+    handleAddProduct(product){
+        this.context.updateCart(product);
     }
 
     getImageSrc(value) {

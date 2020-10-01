@@ -1,0 +1,23 @@
+.cartIcon{
+    position: absolute;
+    bottom: 70px;
+    left: 70px;
+    border: 1px solid  #d5d2d26e;
+    padding: 10px;
+    box-shadow: 3px 3px 13px 0px #d5d2d26e;
+    border-radius: 15px;
+}
+
+.cartIcon:hover{
+    box-shadow: 3px 3px 13px 0px #03095a88;
+    cursor: pointer;
+}
+
+.cartIcon i{
+    font-size: 40px;
+}
+
+.cartIconBadge{
+    position: absolute;
+    top: 0px;
+}

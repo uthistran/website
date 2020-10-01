@@ -1,4 +1,5 @@
 import React from 'react'
+import Cart from '../cart/cart';
 import HeaderComponent from '../header/header'
 import DataContext from '../helper/datacontext';
 import Helper from '../helper/helper';
@@ -9,15 +10,26 @@ class App extends React.Component {
         super();
         this.state = {
             config: {},
-            product : {}
+            product : {},
+            cart : []
         }
     }
+
+    handleUpdateCart(newElement) {
+        let updatedArray = this.state.cart.slice();
+        updatedArray.push(newElement);
+        this.setState({
+            cart: updatedArray
+        })
+    }
+
     render() {
         return (
-            <DataContext.Provider value={{ config: this.state.config, product : this.state.product }}>
+            <DataContext.Provider value={{ config: this.state.config, product : this.state.product, cart : this.state.cart, updateCart: this.handleUpdateCart.bind(this) }}>
                 <div>
                     <HeaderComponent></HeaderComponent>
                     <Routing></Routing>
+                    <Cart data={this.state.cart}></Cart>
                 </div>
             </DataContext.Provider>
         )
