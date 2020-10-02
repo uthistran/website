@@ -41,7 +41,6 @@ class App extends React.Component {
     }
 
     success(data) {
-        console.log("success")
         this.setState({
             config: data
         })

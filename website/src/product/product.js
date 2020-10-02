@@ -7,7 +7,6 @@ class Product extends React.Component {
     constructor() {
         super();
         this.state = {
-            productviewlist: [],
             activeView: 'all',
             currentSort: 'popularity',
             currentView: 'all',
@@ -25,7 +24,8 @@ class Product extends React.Component {
     }
 
     handleViewNumChange(event) {
-        let productsCount = this.state.productviewlist.length;
+        let productList = this.getProductList(this.context.product);
+        let productsCount = productList.length;
         let calculatedtotalPage
         if (event.target.value === 'all') {
             calculatedtotalPage = 1;
@@ -48,21 +48,33 @@ class Product extends React.Component {
 
     static contextType = DataContext;
     render() {
+        let product = this.context.product;
         return (
             <div>
                 <ProductTreeView activeView={this.state.activeView} onTreeViewClick={this.handleTreeViewClick}></ProductTreeView>
-                <ProductView currentView={this.state.currentView} products={this.state.productviewlist} onCurrentPageChange={this.currentPageChangeHandler} currentPage={this.state.currentPage} totalPage={this.state.totalPage} currentSort={this.state.currentSort} handleClick={this.handleClickDropDown} handleViewChange={this.handleViewNumChange}></ProductView>
+                <ProductView currentView={this.state.currentView} products={this.getProductList(product)} onCurrentPageChange={this.currentPageChangeHandler} currentPage={this.state.currentPage} totalPage={this.state.totalPage} currentSort={this.state.currentSort} handleClick={this.handleClickDropDown} handleViewChange={this.handleViewNumChange}></ProductView>
             </div>
         )
     }
 
     handleTreeViewClick(value) {
+        let product = this.context.product;
+        var productList;
+        let calculatedtotalPage
         if (value === 'all') {
-            this.loadAllSubProducts();
+            productList = product.ProductDetails.map((item, index) => {
+                return item.subproducts
+            })
+            productList = productList.flat();
+            
+            if (this.state.currentView === 'all') {
+                calculatedtotalPage = 1;
+            }
+            else {
+                calculatedtotalPage = Math.ceil(productList.length / Number(this.state.currentView));
+            }
         }
         else {
-            let product = this.context.product;
-            var productList;
             if (product && product.ProductDetails) {
                 productList = product.ProductDetails.filter((item) => {
                     return (item.mainproduct === value)
@@ -70,30 +82,23 @@ class Product extends React.Component {
             }
 
             if (productList && productList[0]) {
-                let calculatedtotalPage
                 if (this.state.currentView === 'all') {
                     calculatedtotalPage = 1;
                 }
                 else {
                     calculatedtotalPage = Math.ceil(productList[0].subproducts.length / Number(this.state.currentView));
                 }
-                this.setState({
-                    productviewlist: productList[0].subproducts,
-                    activeView: value,
-                    totalPage: calculatedtotalPage,
-                    currentPage: 1
-                })
             }
         }
+        this.setState({
+            activeView: value,
+            totalPage: calculatedtotalPage,
+            currentPage: 1
+        })
     }
 
-    componentDidMount() {
-        this.loadAllSubProducts();
-    }
-
-    loadAllSubProducts() {
-        let product = this.context.product;
-        var productList;
+    getProductList(product) {
+        var productList = [];
         if (product && product.ProductDetails) {
             productList = product.ProductDetails.map((item, index) => {
                 item.subproducts.forEach(element => {
@@ -104,20 +109,21 @@ class Product extends React.Component {
                 return item.subproducts
             })
             productList = productList.flat();
-            let calculatedtotalPage
-            if (this.state.currentView === 'all') {
-                calculatedtotalPage = 1;
+
+            if (this.state.activeView === 'all') {
+                return productList;
             }
             else {
-                calculatedtotalPage = Math.ceil(productList.length / Number(this.state.currentView));
+                productList = product.ProductDetails.filter((item) => {
+                    return (item.mainproduct === this.state.activeView)
+                })
+
+                if (productList && productList[0]) {
+                    return productList[0].subproducts
+                }
             }
-            this.setState({
-                productviewlist: productList,
-                activeView: 'all',
-                totalPage: calculatedtotalPage,
-                currentPage: 1
-            })
         }
+        return productList;
     }
 }
 export default Product;
