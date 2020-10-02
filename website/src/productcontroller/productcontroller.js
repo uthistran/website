@@ -23,6 +23,10 @@ class ProductController extends React.Component {
     componentDidUpdate() {
         this.input.current.value = this.props.currentPage;
     }
+
+    componentDidMount(){
+        this.input.current.value = this.props.currentPage;
+    }
     render() {
         let leftArrowClass = this.getLeftClassNames();
         let rightArrowClass = this.getRightClassNames();

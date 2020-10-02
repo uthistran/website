@@ -38,7 +38,9 @@ class MenuBar extends React.Component {
     render() {
         return (
             <div className='menumain'>
-                <div className='logo'></div>
+                <div className='logo'>
+                    <img src='/images/logo.png' alt='logo'></img>
+                </div>
                 <div className='routing'>
                     <ul>
                         <li onClick={() => this.handleMenuClick('Home')} className={this.state.activeLink === 'Home' ? 'active' : ''}>

@@ -29,9 +29,7 @@ class Cart extends React.Component {
                 <MDBModal isOpen={this.state.isModalOpen} toggle={this.toggle} fullHeight position="right" size="lg">
                     <MDBModalHeader toggle={this.toggle}>Enquire the below Products</MDBModalHeader>
                     <MDBModalBody>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                        {this.getCardDetails(cartData)}
                     </MDBModalBody>
                     <MDBModalFooter>
                         <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
@@ -43,6 +41,18 @@ class Cart extends React.Component {
 
         return (
             element
+        )
+    }
+
+    getCardDetails(cartData){
+        return(
+            cartData.map((element, index) => {
+                return (
+                    <div>
+                        
+                    </div>
+                )
+            })
         )
     }
 }

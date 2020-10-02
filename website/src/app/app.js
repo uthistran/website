@@ -13,6 +13,11 @@ class App extends React.Component {
             product : {},
             cart : []
         }
+        this.onScrollHandler = this.onScrollHandler.bind(this);
+    }
+
+    onScrollHandler(event){
+        console.log("scrolling")
     }
 
     handleUpdateCart(newElement) {
@@ -21,6 +26,10 @@ class App extends React.Component {
         this.setState({
             cart: updatedArray
         })
+    }
+    
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.onScrollHandler);
     }
 
     render() {
@@ -38,6 +47,7 @@ class App extends React.Component {
     componentDidMount() {
         Helper.actionCall('config.json', this.success.bind(this), this.failure);
         Helper.actionCall('product.json', this.successProduct.bind(this), this.failure);
+        window.addEventListener('scroll', this.onScrollHandler);
     }
 
     success(data) {
