@@ -4,7 +4,7 @@ import './mapcontainer.css'
 
 class MapContainer extends React.Component{
     static contextType = DataContext;
-    iframe = '<iframe src="' + this.context.config.map +'" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'
+    
     render(){
         return(
             <div className='mapcontainer' dangerouslySetInnerHTML={this.getiframeData()}>
@@ -14,7 +14,7 @@ class MapContainer extends React.Component{
 
     getiframeData(){
         return {
-            __html: this.iframe
+            __html: '<iframe src="' + this.context.config.map +'" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'
           }
     }
 }
