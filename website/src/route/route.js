@@ -12,7 +12,7 @@ class Routing extends React.Component {
     render() {
         return (
             <Router>
-                <MenuBar></MenuBar>
+                <MenuBar isFloatingMenu={this.props.isFloatingMenu}></MenuBar>
                 <Suspense fallback={<div>Loading...</div>}>
                     <Switch>
                         <Route exact path="/" component={this.Home} pattern='/' />

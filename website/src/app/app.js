@@ -11,13 +11,22 @@ class App extends React.Component {
         this.state = {
             config: {},
             product : {},
-            cart : []
+            cart : [],
+            isFloatingMenu : false
         }
         this.onScrollHandler = this.onScrollHandler.bind(this);
     }
 
     onScrollHandler(event){
-        console.log("scrolling")
+        let floatingMenu = false
+        if(window.scrollY > 80){
+            floatingMenu = true
+        }
+        if(this.state.isFloatingMenu !== floatingMenu){
+            this.setState({
+                isFloatingMenu : floatingMenu
+            })
+        }
     }
 
     handleUpdateCart(newElement) {
@@ -37,7 +46,7 @@ class App extends React.Component {
             <DataContext.Provider value={{ config: this.state.config, product : this.state.product, cart : this.state.cart, updateCart: this.handleUpdateCart.bind(this) }}>
                 <div>
                     <HeaderComponent></HeaderComponent>
-                    <Routing></Routing>
+                    <Routing isFloatingMenu={this.state.isFloatingMenu}></Routing>
                     <Cart data={this.state.cart}></Cart>
                 </div>
             </DataContext.Provider>

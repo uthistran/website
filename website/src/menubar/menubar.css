@@ -97,3 +97,16 @@
     width: 50%;
     border-radius: 50%;
 }
+
+.floatingMenu{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background: white;
+  z-index: 2;
+}
+
+.floatingMenu .logo img{
+  width: 20%;
+  border-radius: 50%;
+}

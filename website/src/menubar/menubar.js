@@ -13,19 +13,19 @@ class MenuBar extends React.Component {
     }
 
     pathmapping = {
-        "/" : "Home",
-        "/about" : "About",
-        "/product" : "Product",
-        "/contact" : "Contact"
+        "/": "Home",
+        "/about": "About",
+        "/product": "Product",
+        "/contact": "Contact"
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getActiveLinkOnRefresh(this.props.location.pathname);
     }
 
-    getActiveLinkOnRefresh(pathname){
+    getActiveLinkOnRefresh(pathname) {
         this.setState({
-            activeLink : this.pathmapping[pathname]
+            activeLink: this.pathmapping[pathname]
         })
     }
 
@@ -36,8 +36,36 @@ class MenuBar extends React.Component {
     }
 
     render() {
+        let enableFloatingMenu = this.props.isFloatingMenu;
         return (
             <div className='menumain'>
+                <div className='logo'>
+                    <img src='/images/logo.png' alt='logo'></img>
+                </div>
+                <div className='routing'>
+                    <ul>
+                        <li onClick={() => this.handleMenuClick('Home')} className={this.state.activeLink === 'Home' ? 'active' : ''}>
+                            <Link className="noselect" to='/'>Home</Link>
+                        </li>
+                        <li onClick={() => this.handleMenuClick('About')} className={this.state.activeLink === 'About' ? 'active' : ''}>
+                            <Link className="noselect" to='/about'>About Us</Link>
+                        </li>
+                        <li onClick={() => this.handleMenuClick('Product')} className={this.state.activeLink === 'Product' ? 'active' : ''}>
+                            <Link className="noselect" to='/product'>Product</Link>
+                        </li>
+                        <li onClick={() => this.handleMenuClick('Contact')} className={this.state.activeLink === 'Contact' ? 'active' : ''}>
+                            <Link className="noselect" to='/contact'>Contact Us</Link>
+                        </li>
+                    </ul>
+                </div>
+                {enableFloatingMenu ? this.getFloatingMenu() : null}
+            </div>
+        )
+    }
+
+    getFloatingMenu() {
+        return (
+            <div className='floatingMenu'>
                 <div className='logo'>
                     <img src='/images/logo.png' alt='logo'></img>
                 </div>
