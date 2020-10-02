@@ -21,3 +21,18 @@
     position: absolute;
     top: 0px;
 }
+
+.cartItem{
+    width: 100%;
+    border-bottom: 1px solid #d5d2d26e;
+    display: table;
+}
+
+.cartItem .cartItemName, .cartItem .cartItemImage, .cartItem .cartItemPrice{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-right: 1px solid #d5d2d26e;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
