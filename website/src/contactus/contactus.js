@@ -4,9 +4,16 @@ import './contactus.css'
 import MapContainer from '../mapcontainer/mapcontainer';
 import DataContext from '../helper/datacontext';
 
-
 class ContactUs extends React.Component {
     static contextType = DataContext;
+    constructor() {
+        super();
+        this.sendMail = this.sendMail.bind(this);
+    }
+
+    sendMail() {
+       
+    }
     render() {
         return (
             <div className='contactus'>
@@ -25,7 +32,7 @@ class ContactUs extends React.Component {
                                     <MDBInput label="Mobile Number" icon="phone" group type="phone" validate error="wrong" success="right" />
                                     <MDBInput type="textarea" rows="2" label="Your message" icon="pencil-alt" />
                                 </div>
-                                <div className="text-center">
+                                <div className="text-center" onClick={this.sendMail}>
                                     <MDBBtn outline color="primary">
                                         Send
                                         <MDBIcon far icon="paper-plane" className="ml-1" />

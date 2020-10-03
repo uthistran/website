@@ -19,13 +19,22 @@ class Cart extends React.Component {
             isModalOpen: !this.state.isModalOpen
         })
     }
+
+    sum(arr, key) {
+        return arr.reduce((a, b) => a + (b[key] || 0), 0);
+    }
+
     render() {
         var cartData = this.props.data;
+        let cartCount = 0;
+        if (cartData) {
+            cartCount = this.sum(cartData, 'count');
+        }
         var element = null;
-        if (cartData && cartData.length > 0) {
+        if (cartCount > 0) {
             element = <div><div className='cartIcon' onClick={this.toggle}>
                 <i className="fas fa-shopping-cart"></i>
-                <MDBBadge className='cartIconBadge' color="red" pill>{cartData.length}</MDBBadge>
+                <MDBBadge className='cartIconBadge' color="red" pill>{cartCount}</MDBBadge>
             </div>
                 <MDBModal isOpen={this.state.isModalOpen} toggle={this.toggle} fullHeight position="right" size="lg">
                     <MDBModalHeader toggle={this.toggle}>Enquire the below Products</MDBModalHeader>
@@ -52,7 +61,7 @@ class Cart extends React.Component {
                     <div key={index} className='cartItem'>
                         <div className='cartItemName'>{element.name}</div>
                         <div className='cartItemImage'>
-                            <img src={this.getImagePath(element.image)} alt ={element.name}></img> </div>
+                            <img src={this.getImagePath(element.image)} alt={element.name}></img> </div>
                         <label className='cartItemPrice'>{this.getDiscountedPrice(element.price, element.discount)}</label>
                     </div>
                 )
@@ -60,7 +69,7 @@ class Cart extends React.Component {
         )
     }
 
-    getImagePath(image){
+    getImagePath(image) {
         return '/images/' + image;
     }
 

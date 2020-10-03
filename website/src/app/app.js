@@ -10,40 +10,53 @@ class App extends React.Component {
         super();
         this.state = {
             config: {},
-            product : {},
-            cart : [],
-            isFloatingMenu : false
+            product: {},
+            cart: [],
+            isFloatingMenu: false
         }
         this.onScrollHandler = this.onScrollHandler.bind(this);
     }
 
-    onScrollHandler(event){
+    onScrollHandler(event) {
         let floatingMenu = false
-        if(window.scrollY > 80){
+        if (window.scrollY > 80) {
             floatingMenu = true
         }
-        if(this.state.isFloatingMenu !== floatingMenu){
+        if (this.state.isFloatingMenu !== floatingMenu) {
             this.setState({
-                isFloatingMenu : floatingMenu
+                isFloatingMenu: floatingMenu
             })
         }
     }
 
     handleUpdateCart(newElement) {
         let updatedArray = this.state.cart.slice();
-        updatedArray.push(newElement);
+        let productAlreadyExist = false;
+        updatedArray.find((element, index) => {
+            if (element.name === newElement.name) {
+                updatedArray[index]['count'] += 1
+                productAlreadyExist = true;
+                return true;
+            }
+            return false
+        })
+        if (!productAlreadyExist) {
+            newElement['count'] = 1
+            updatedArray.push(newElement);
+        }
+
         this.setState({
             cart: updatedArray
         })
     }
-    
+
     componentWillUnmount() {
         window.removeEventListener('scroll', this.onScrollHandler);
     }
 
     render() {
         return (
-            <DataContext.Provider value={{ config: this.state.config, product : this.state.product, cart : this.state.cart, updateCart: this.handleUpdateCart.bind(this) }}>
+            <DataContext.Provider value={{ config: this.state.config, product: this.state.product, cart: this.state.cart, updateCart: this.handleUpdateCart.bind(this) }}>
                 <div>
                     <HeaderComponent></HeaderComponent>
                     <Routing isFloatingMenu={this.state.isFloatingMenu}></Routing>
