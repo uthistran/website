@@ -63,6 +63,10 @@ class Cart extends React.Component {
                         <div className='cartItemImage'>
                             <img src={this.getImagePath(element.image)} alt={element.name}></img> </div>
                         <label className='cartItemPrice'>{this.getDiscountedPrice(element.price, element.discount)}</label>
+                        <div className='cartItemCount'>
+                            <input value={element.count}></input>
+                        </div>
+                <label className='cartItemPriceOnQ'>{this.getTotalPriceofEachItem(element.count, element.price, element.discount)}</label>
                     </div>
                 )
             })
@@ -78,6 +82,13 @@ class Cart extends React.Component {
         var discountinNum = Number(discount.replace('%', ''))
         var discountedPrice = (priceinNum / 100) * discountinNum
         return numberFormat(discountedPrice.toString());
+    }
+
+    getTotalPriceofEachItem(count, price, discount){
+        var priceinNum = Number(price);
+        var discountinNum = Number(discount.replace('%', ''))
+        var discountedPrice = (priceinNum / 100) * discountinNum
+        return numberFormat((discountedPrice * count).toString());
     }
 }
 

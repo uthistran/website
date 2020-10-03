@@ -28,10 +28,10 @@
     display: table;
 }
 
-.cartItem .cartItemName, .cartItem .cartItemImage, .cartItem .cartItemPrice{
+.cartItem .cartItemName, .cartItem .cartItemImage, .cartItem .cartItemPrice, .cartItemCount, .cartItemPriceOnQ{
     margin-left: 10px;
     margin-right: 10px;
-    border-right: 1px solid #d5d2d26e;
+    /* border-right: 1px solid #d5d2d26e; */
     display: table-cell;
     vertical-align: middle;
     text-align: center;
