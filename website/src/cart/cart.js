@@ -11,7 +11,12 @@ class Cart extends React.Component {
         this.state = {
             isModalOpen: false
         }
-        this.toggle = this.toggle.bind(this)
+        this.toggle = this.toggle.bind(this);
+        this.onCountChange = this.onCountChange.bind(this);
+    }
+
+    onCountChange(event, [index, currentValue]) {
+        // console.log(value)
     }
 
     toggle() {
@@ -64,9 +69,11 @@ class Cart extends React.Component {
                             <img src={this.getImagePath(element.image)} alt={element.name}></img> </div>
                         <label className='cartItemPrice'>{this.getDiscountedPrice(element.price, element.discount)}</label>
                         <div className='cartItemCount'>
-                            <input value={element.count}></input>
+                            <i className="fa fa-minus-circle" aria-hidden="true" onClick={(e) => this.props.onClickMinus(e, element.name)}></i>
+                            <input value={element.count} onChange={(e) => this.onCountChange(e, [index, element.count])}></input>
+                            <i className="fa fa-plus-circle" aria-hidden="true" onClick={(e) => this.props.onClickAdd(e, element.name)}></i>
                         </div>
-                <label className='cartItemPriceOnQ'>{this.getTotalPriceofEachItem(element.count, element.price, element.discount)}</label>
+                        <label className='cartItemPriceOnQ'>{this.getTotalPriceofEachItem(element.count, element.price, element.discount)}</label>
                     </div>
                 )
             })
@@ -84,7 +91,7 @@ class Cart extends React.Component {
         return numberFormat(discountedPrice.toString());
     }
 
-    getTotalPriceofEachItem(count, price, discount){
+    getTotalPriceofEachItem(count, price, discount) {
         var priceinNum = Number(price);
         var discountinNum = Number(discount.replace('%', ''))
         var discountedPrice = (priceinNum / 100) * discountinNum

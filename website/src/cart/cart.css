@@ -35,4 +35,17 @@
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    width: 100px;
+    padding : 10px;
+}
+
+.cartItemCount input{
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.cartItemImage img{
+    width: 100%;
 }
