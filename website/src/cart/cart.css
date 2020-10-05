@@ -56,3 +56,11 @@
 .cartItemImage img{
     width: 100%;
 }
+
+.subTotal {
+    float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+    font-size: 23px;
+    font-weight: bold;
+}

@@ -53,9 +53,13 @@ class Cart extends React.Component {
                     <MDBModalHeader toggle={this.toggle}>Enquire the below Products</MDBModalHeader>
                     <MDBModalBody>
                         {this.getCardDetails(cartData)}
+                        <div className='subTotal'>
+                            <span>SubTotal : </span>
+                            <span>{this.getSubtotal()}</span>
+                        </div>
                     </MDBModalBody>
                     <MDBModalFooter>
-                        <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
+                        <MDBBtn color="secondary" onClick={this.toggle}>Continue Shopping</MDBBtn>
                         <MDBBtn color="primary">Send Enquiry</MDBBtn>
                     </MDBModalFooter>
                 </MDBModal>
@@ -105,6 +109,16 @@ class Cart extends React.Component {
         var discountinNum = Number(discount.replace('%', ''))
         var discountedPrice = (priceinNum / 100) * discountinNum
         return numberFormat((discountedPrice * count).toString());
+    }
+
+    getSubtotal(){
+        let subtotal = 0;
+        this.props.data.forEach(element => {
+            var priceinNum = Number(element.price);
+            var discountinNum = Number(element.discount.replace('%', ''))
+            subtotal += (((priceinNum / 100) * discountinNum) * element.count);
+        });
+        return numberFormat((subtotal).toString());
     }
 }
 
