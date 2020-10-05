@@ -17,6 +17,15 @@ class App extends React.Component {
         this.onScrollHandler = this.onScrollHandler.bind(this);
         this.onClickAdd = this.onClickAdd.bind(this);
         this.onClickMinus = this.onClickMinus.bind(this);
+        this.onRemoveClick = this.onRemoveClick.bind(this);
+    }
+
+    onRemoveClick(event, name){
+        let updatedArray = this.state.cart.slice();
+        updatedArray = updatedArray.filter((element) => element.name !== name);
+        this.setState({
+            cart: updatedArray
+        })
     }
 
     onScrollHandler(event) {
@@ -92,7 +101,7 @@ class App extends React.Component {
                 <div>
                     <HeaderComponent></HeaderComponent>
                     <Routing isFloatingMenu={this.state.isFloatingMenu}></Routing>
-                    <Cart data={this.state.cart} onClickAdd={this.onClickAdd} onClickMinus={this.onClickMinus}></Cart>
+                    <Cart data={this.state.cart} onRemoveClick={this.onRemoveClick} onClickAdd={this.onClickAdd} onClickMinus={this.onClickMinus}></Cart>
                 </div>
             </DataContext.Provider>
         )

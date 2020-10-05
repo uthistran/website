@@ -46,6 +46,13 @@
     text-align: center;
 }
 
+.cartItemCount .removeElement{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    display: block;
+}
+
 .cartItemImage img{
     width: 100%;
 }

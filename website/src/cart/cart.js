@@ -12,11 +12,19 @@ class Cart extends React.Component {
             isModalOpen: false
         }
         this.toggle = this.toggle.bind(this);
-        this.onCountChange = this.onCountChange.bind(this);
+        this.onRemoveClick = this.onRemoveClick.bind(this);
     }
 
-    onCountChange(event, [index, currentValue]) {
-        // console.log(value)
+    onRemoveClick(event, name){
+        var cartData = this.props.data;
+        let cartCount = 0;
+        if (cartData) {
+            cartCount = this.sum(cartData, 'count');
+        }
+        if(cartCount <=1 ){
+            this.toggle()
+        }
+        this.props.onRemoveClick(event, name)
     }
 
     toggle() {
@@ -72,6 +80,7 @@ class Cart extends React.Component {
                             <i className="fa fa-minus-circle" aria-hidden="true" onClick={(e) => this.props.onClickMinus(e, element.name)}></i>
                             <input value={element.count} onChange={(e) => this.onCountChange(e, [index, element.count])}></input>
                             <i className="fa fa-plus-circle" aria-hidden="true" onClick={(e) => this.props.onClickAdd(e, element.name)}></i>
+                            <span className='removeElement' onClick={(e) => this.onRemoveClick(e, element.name)}>Remove</span>
                         </div>
                         <label className='cartItemPriceOnQ'>{this.getTotalPriceofEachItem(element.count, element.price, element.discount)}</label>
                     </div>
