@@ -1,47 +1,20 @@
 import React from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 import './contactus.css'
 import MapContainer from '../mapcontainer/mapcontainer';
 import DataContext from '../helper/datacontext';
+import Enquire from './enquire';
 
 class ContactUs extends React.Component {
     static contextType = DataContext;
-    constructor() {
-        super();
-        this.sendMail = this.sendMail.bind(this);
-    }
-
-    sendMail() {
-       
-    }
+    
     render() {
         return (
             <div className='contactus'>
                 <h2 className='header'>Contact US</h2>
                 <h4>We would love to hear from you</h4>
 
-                <MDBContainer>
-                    <MDBRow>
-                        <MDBCol md="10">
-                            <form>
-                                <div className="grey-text">
-                                    <MDBInput label="Your name" icon="user" group type="text" validate error="wrong"
-                                        success="right" />
-                                    <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
-                                        success="right" />
-                                    <MDBInput label="Mobile Number" icon="phone" group type="phone" validate error="wrong" success="right" />
-                                    <MDBInput type="textarea" rows="2" label="Your message" icon="pencil-alt" />
-                                </div>
-                                <div className="text-center" onClick={this.sendMail}>
-                                    <MDBBtn outline color="primary">
-                                        Send
-                                        <MDBIcon far icon="paper-plane" className="ml-1" />
-                                    </MDBBtn>
-                                </div>
-                            </form>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBContainer>
+                <Enquire></Enquire>
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol md='10'>
