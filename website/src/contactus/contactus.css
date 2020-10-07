@@ -33,6 +33,12 @@
     color: #000;
 }
 
+.contactusCard .contactusMail{
+    color: #000;
+    word-break: break-all;
+    margin-left: 5px;    
+}
+
 .contactusCard a i{
     font-style: normal;
     color: #000;

@@ -74,7 +74,7 @@ class ContactUs extends React.Component {
                                     <MDBCardText>
                                         <a href={this.getMail(this.context.config.email)}>
                                             <span className='fa fa-envelope'></span>
-                                            <span className='contactusPhone'>{this.context.config.email}</span>
+                                            <span className='contactusMail'>{this.context.config.email}</span>
                                         </a>
                                     </MDBCardText>
                                 </MDBCardBody>
