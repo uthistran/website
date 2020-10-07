@@ -15,7 +15,7 @@ class ContactUs extends React.Component {
                 <h4>We would love to hear from you</h4>
 
                 <Enquire></Enquire>
-                <MDBContainer>
+                <MDBContainer className='contactDetail'>
                     <MDBRow>
                         <MDBCol md='10'>
                             <MDBCard className="contactusCard">

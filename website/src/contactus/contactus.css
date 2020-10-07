@@ -64,3 +64,29 @@
   .contactusCard a .insta{
       color: #bc2a8d;
   }
+
+  @media screen and (max-width: 1023px) 
+  {
+      .contactus{
+          padding-right: 30px;
+      }
+    .contactus .container{
+        width: 100%;
+        border-right: none;
+        max-width: 100%;
+    }
+
+    .contactus .contactDetail{
+        margin-top: 50px;
+    }
+
+    .contactus .col-md-10, .contactus .col-md-5{
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .mapcontainer{
+        max-width: 100%;
+        margin-left : 10px
+    }
+  }

@@ -24,12 +24,12 @@ class Enquire extends React.Component {
                     <MDBCol md="10">
                         <form>
                             <div className="grey-text">
-                                <MDBInput label="Your name" icon="user" group type="text" validate error="wrong"
+                                <MDBInput label="Name" icon="user" group type="text" validate error="wrong"
                                     success="right" />
-                                <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
+                                <MDBInput label="E-mail" icon="envelope" group type="email" validate error="wrong"
                                     success="right" />
                                 <MDBInput label="Mobile Number" icon="phone" group type="phone" validate error="wrong" success="right" />
-                                {!hideMessage ? <MDBInput type="textarea" rows="2" label="Your message" icon="pencil-alt" /> : null}
+                                {!hideMessage ? <MDBInput type="textarea" rows="2" label="Message" icon="pencil-alt" /> : null}
                             </div>
                             <div className="text-center" onClick={this.sendMail}>
                                 <MDBBtn outline color="primary">
