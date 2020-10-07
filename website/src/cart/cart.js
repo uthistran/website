@@ -3,16 +3,25 @@ import React from 'react';
 import './cart.css'
 import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 import { numberFormat } from '../helper/formatnumber';
+import Enquire from '../contactus/enquire';
 
 
 class Cart extends React.Component {
     constructor() {
         super();
         this.state = {
-            isModalOpen: false
+            isModalOpen: false,
+            isEnquireClicked : false
         }
         this.toggle = this.toggle.bind(this);
         this.onRemoveClick = this.onRemoveClick.bind(this);
+        this.onEnquireClick = this.onEnquireClick.bind(this);
+    }
+
+    onEnquireClick(){
+        this.setState({
+            isEnquireClicked : true
+        })
     }
 
     onRemoveClick(event, name){
@@ -29,7 +38,8 @@ class Cart extends React.Component {
 
     toggle() {
         this.setState({
-            isModalOpen: !this.state.isModalOpen
+            isModalOpen: !this.state.isModalOpen,
+            isEnquireClicked : false
         })
     }
 
@@ -49,7 +59,7 @@ class Cart extends React.Component {
                 <i className="fas fa-shopping-cart"></i>
                 <MDBBadge className='cartIconBadge' color="red" pill>{cartCount}</MDBBadge>
             </div>
-                <MDBModal isOpen={this.state.isModalOpen} toggle={this.toggle} fullHeight position="right" size="lg">
+                {!this.state.isEnquireClicked ? <MDBModal isOpen={this.state.isModalOpen} toggle={this.toggle} fullHeight position="right" size="lg">
                     <MDBModalHeader toggle={this.toggle}>Enquire the below Products</MDBModalHeader>
                     <MDBModalBody>
                         {this.getCardDetails(cartData)}
@@ -60,9 +70,17 @@ class Cart extends React.Component {
                     </MDBModalBody>
                     <MDBModalFooter>
                         <MDBBtn color="secondary" onClick={this.toggle}>Continue Shopping</MDBBtn>
-                        <MDBBtn color="primary">Send Enquiry</MDBBtn>
+                        <MDBBtn color="primary" onClick={this.onEnquireClick} >Send Enquiry</MDBBtn>
                     </MDBModalFooter>
+                    
+                </MDBModal> : 
+                
+                <MDBModal isOpen={this.state.isModalOpen} toggle={this.toggle} fullHeight position="right" size="lg">
+                    <MDBModalHeader toggle={this.toggle}>Please provide below details, so that we can get back to you on your Enquiry</MDBModalHeader>
+                    <Enquire className='enquirePage' hideMessage={true}></Enquire>
                 </MDBModal>
+                }
+
             </div>
         }
 
