@@ -92,7 +92,8 @@ class ContactUs extends React.Component {
     }
 
     getWhatsAppNumber(value) {
-        return "https://web.whatsapp.com/send?phone=" + value
+         //"https://web.whatsapp.com/send?phone=" + value
+         return "https://api.whatsapp.com/send?phone=" + value;
     }
 
     getMail(value) {
