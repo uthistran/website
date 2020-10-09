@@ -127,6 +127,37 @@
 @media screen and (max-width: 1023px) 
   {
     .menumain{
-        display: none;
+        /* display: none; */
+        height: 100%; /* 100% Full-height */
+        width: 50%; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: #fff; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        /* padding-top: 60px;  */
+        transition: 0.5s;
+        border: 1px solid #d5d2d26e;
     }
+
+    .menumain .routing{
+      float: none;
+      width: 100%;
+      padding-top: 0px;
+      padding-left: 0;
+    }
+
+    .menumain .routing ul li{
+      transition: 0.3s;
+      margin: auto;
+      text-align: center;
+      float: none;
+      margin-bottom: 20px;
+    }
+
+    .floatingMenu{
+      display: none;
+    }
+    
   }
