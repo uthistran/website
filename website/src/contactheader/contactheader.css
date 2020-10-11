@@ -4,11 +4,15 @@
     float: left;
 }
 
-.contactHeader .location, .contactHeader .phone {
+.contactHeader .location, .contactHeader .phone, .contactHeader .navMenu {
     float: left;
     font-size: 12pt;
     margin-left: 5px;
     margin-right: 15px;
+}
+
+.contactHeader .navMenu{
+    display: none
 }
 
 .phone a{
@@ -51,7 +55,10 @@
 
   @media screen and (max-width: 1023px) 
   {
-    .contactHeader{
+    .contactHeader .navMenu{
+        display: block;
+    }
+    .contactHeader .location, .contactHeader .phone {
         display: none;
     }
   }

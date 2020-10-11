@@ -11,6 +11,9 @@ class ContactHeaderComponent extends React.Component {
         return (
             (value && value.config) ?
                 (<div className='contactHeader'>
+                    <div className='navMenu'>
+                        <i className="fas fa-bars"></i>
+                    </div>
                     <div className='location'>
                         <span className='fa fa-map-marker-alt'></span>
                         <span>{value.config.address}</span>
