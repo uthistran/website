@@ -49,6 +49,9 @@ class MenuBar extends React.Component {
             <div className={mainClass}>
                 <div className='logo'>
                     <img src='/images/logo.png' alt='logo'></img>
+                    <div className='closeBtn' onClick={this.context.updateNavMenu}> 
+                        <i className="fas fa-times"></i>
+                    </div>
                 </div>
                 <div className='routing'>
                     <ul>
@@ -56,7 +59,7 @@ class MenuBar extends React.Component {
                             <Link className="noselect" to='/'>Home</Link>
                         </li>
                         <li onClick={() => this.handleMenuClick('About')} className={this.state.activeLink === 'About' ? 'active' : ''}>
-                            <Link className="noselect" to='/about'>About Us</Link>
+                            <Link className="noselect" to='/about'>Gallery</Link>
                         </li>
                         <li onClick={() => this.handleMenuClick('Product')} className={this.state.activeLink === 'Product' ? 'active' : ''}>
                             <Link className="noselect" to='/product'>Product</Link>
@@ -83,7 +86,7 @@ class MenuBar extends React.Component {
                             <Link className="noselect" to='/'>Home</Link>
                         </li>
                         <li onClick={() => this.handleMenuClick('About')} className={this.state.activeLink === 'About' ? 'active' : ''}>
-                            <Link className="noselect" to='/about'>About Us</Link>
+                            <Link className="noselect" to='/about'>Gallery</Link>
                         </li>
                         <li onClick={() => this.handleMenuClick('Product')} className={this.state.activeLink === 'Product' ? 'active' : ''}>
                             <Link className="noselect" to='/product'>Product</Link>
