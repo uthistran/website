@@ -77,3 +77,24 @@
     text-align: center;
     color: #fff;
 }
+
+
+@media screen and (max-width: 880px) 
+  {
+    .productView .productViewCard{
+        width: calc(100%/2.5);
+    }
+  }
+
+  @media screen and (max-width: 600px) 
+  {
+      .productView{
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    .productView .productViewCard{
+        width: 100%;
+        margin-left: 0px;
+    }
+  }

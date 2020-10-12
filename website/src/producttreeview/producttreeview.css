@@ -33,3 +33,10 @@
 .productTreeView .productTreeList .productTreeItem .productTreeBadge{
     background-color: #3a3838b3;
 }
+
+@media screen and (max-width: 600px) 
+  {
+    .productTreeView{
+        display: none;
+    }
+  }

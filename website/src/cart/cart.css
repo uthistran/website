@@ -78,3 +78,22 @@
       opacity: 1;
     }
   }
+
+  @media screen and (max-width: 600px) 
+  {
+    .cartIcon{
+        bottom: 30px;
+        left: 30px;
+    }
+
+    .cartItemImage{
+        display: none !important;
+    }
+    .cartItem .cartItemName, .cartItem .cartItemImage, .cartItem .cartItemPrice, .cartItemCount, .cartItemPriceOnQ{
+        padding: 0px;
+    }
+
+    .modal-content .container{
+        width: 100%;
+    }
+  }
