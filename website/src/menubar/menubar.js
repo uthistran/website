@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import DataContext from '../helper/datacontext';
 import './menubar.css'
 
 class MenuBar extends React.Component {
@@ -11,6 +12,8 @@ class MenuBar extends React.Component {
         }
         this.handleMenuClick = this.handleMenuClick.bind(this);
     }
+
+    static contextType = DataContext;
 
     pathmapping = {
         "/": "Home",
@@ -33,12 +36,17 @@ class MenuBar extends React.Component {
         this.setState({
             activeLink: id
         })
+        this.context.updateNavMenu()
     }
 
     render() {
+        let mainClass = 'menumain';
+        if(this.context.isNavSideMenuOpen){
+            mainClass = 'menumain navOpen'
+        }
         let enableFloatingMenu = this.props.isFloatingMenu;
         return (
-            <div className='menumain'>
+            <div className={mainClass}>
                 <div className='logo'>
                     <img src='/images/logo.png' alt='logo'></img>
                 </div>

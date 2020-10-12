@@ -126,18 +126,21 @@
 @media screen and (max-width: 1023px) 
   {
     .menumain{
-        /* display: none; */
-        height: 100%; /* 100% Full-height */
-        width: 50%; /* 0 width - change this with JavaScript */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Stay on top */
-        top: 0; /* Stay at the top */
+        height: 100%; 
+        width: 0%; 
+        position: fixed; 
+        z-index: 1; 
+        top: 0; 
         left: 0;
-        background-color: #fff; /* Black*/
-        overflow-x: hidden; /* Disable horizontal scroll */
-        /* padding-top: 60px;  */
-        transition: 0.5s;
+        background-color: #fff; 
+        overflow-x: hidden; 
         border: 1px solid #d5d2d26e;
+        transition: width 1s;
+    }
+
+    .menumain.navOpen{
+      width: 50%;
+      transition: width 1s;
     }
 
     .menumain .logo{

@@ -4,6 +4,13 @@ import './contactheader.css'
 
 class ContactHeaderComponent extends React.Component {
 
+    constructor(){
+        super();
+        this.handleNavMenuClick = this.handleNavMenuClick.bind(this);
+    }
+    handleNavMenuClick(){
+        this.context.updateNavMenu();
+    }
     static contextType = DataContext;
 
     render() {
@@ -11,7 +18,7 @@ class ContactHeaderComponent extends React.Component {
         return (
             (value && value.config) ?
                 (<div className='contactHeader'>
-                    <div className='navMenu'>
+                    <div className='navMenu' onClick={this.handleNavMenuClick}>
                         <i className="fas fa-bars"></i>
                     </div>
                     <div className='location'>
