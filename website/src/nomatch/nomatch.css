@@ -1,0 +1,12 @@
+.noMatch{
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    position: fixed;
+    top: calc(100%/2);
+}
+
+.noMatch i{
+    color: red;
+    margin-right: 10px;
+}

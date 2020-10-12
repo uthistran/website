@@ -8,6 +8,7 @@ class Routing extends React.Component {
     About = lazy(() => import('../about/about')); 
     Product = lazy(() => import('../product/product'));
     Contact = lazy(() => import('../contactus/contactus'));
+    NoMatch = lazy(() => import('../nomatch/nomatch'));
 
     render() {
         return (
@@ -19,6 +20,7 @@ class Routing extends React.Component {
                         <Route path="/about" component={this.About} pattern='/about' />
                         <Route path="/product" component={this.Product} pattern='/product' />
                         <Route path="/contact" component={this.Contact} pattern='/contact' />
+                        <Route component={this.NoMatch} />
                     </Switch>
                 </Suspense>
             </Router>
