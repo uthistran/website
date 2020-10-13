@@ -15,7 +15,7 @@ class ProductView extends React.Component {
     render() {
         return (
             <div className='productView'>
-                <ProductController onCurrentPageChange={this.props.onCurrentPageChange} currentPage={this.props.currentPage} totalPage={this.props.totalPage} currentSort={this.props.currentSort} handleClick={this.props.handleClick} handleViewChange={this.props.handleViewChange}></ProductController>
+                <ProductController activeView={this.props.activeView} onTreeViewClick={this.props.onTreeViewClick} onCurrentPageChange={this.props.onCurrentPageChange} currentPage={this.props.currentPage} totalPage={this.props.totalPage} currentSort={this.props.currentSort} handleClick={this.props.handleClick} handleViewChange={this.props.handleViewChange}></ProductController>
                 {this.getProductList()}
             </div>
         )

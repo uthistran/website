@@ -52,7 +52,7 @@ class Product extends React.Component {
         return (
             <div>
                 <ProductTreeView activeView={this.state.activeView} onTreeViewClick={this.handleTreeViewClick}></ProductTreeView>
-                <ProductView currentView={this.state.currentView} products={this.getProductList(product)} onCurrentPageChange={this.currentPageChangeHandler} currentPage={this.state.currentPage} totalPage={this.state.totalPage} currentSort={this.state.currentSort} handleClick={this.handleClickDropDown} handleViewChange={this.handleViewNumChange}></ProductView>
+                <ProductView activeView={this.state.activeView} onTreeViewClick={this.handleTreeViewClick} currentView={this.state.currentView} products={this.getProductList(product)} onCurrentPageChange={this.currentPageChangeHandler} currentPage={this.state.currentPage} totalPage={this.state.totalPage} currentSort={this.state.currentSort} handleClick={this.handleClickDropDown} handleViewChange={this.handleViewNumChange}></ProductView>
             </div>
         )
     }
