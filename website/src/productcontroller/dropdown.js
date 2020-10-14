@@ -5,7 +5,7 @@ class ProductDropdown extends React.Component {
   render() {
     return (
       <label>
-        Sort By:
+        <span className='dropdownlabel'> Sort By:</span>
         <select className='customDropdown' value={this.props.currentSort} onChange={this.props.handleClickDropDown}>
           <option value="popularity">Popularity</option>
           <option value="latest">Latest</option>

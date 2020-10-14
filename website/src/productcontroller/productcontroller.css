@@ -53,7 +53,15 @@
 @media screen and (max-width: 600px) 
   {
         .productController{
-            margin-left: 0px;
+            display: block;
+            text-align: center;
+            box-shadow: 0px 1px 20px 3px #dedede;
+            margin-bottom: 10px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 100%;
+            padding-bottom: 10px;
+            padding-top: 10px;
         }
 
         .customDropdown{
@@ -63,5 +71,12 @@
 
         .productController .productDropDown{
             display: block;
+            margin-top: 10px;
+        }
+
+        .productController .pageNavigation{
+            margin-right: 0px;
+            float: none;
+            margin-top: 10px;
         }
   }
