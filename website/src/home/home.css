@@ -1,0 +1,44 @@
+.home .cards{
+    margin-top: 20px;
+}
+
+.home .cards .homeCard{
+    width: calc(100%/3.5);
+    float: left;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    height: 250px;
+    text-align: center;
+}
+
+.home .cards .homeCard:hover{
+    box-shadow: 3px 3px 13px 0px #03095a88;
+    cursor: pointer;
+}
+
+.home .cards .homeCard .mainName{
+    font-size: 19px;
+    font-weight: bold;
+    height: 25%;
+    text-align: center;
+}
+
+@media screen and (max-width: 880px) 
+  {
+    .home .cards .homeCard{
+        width: calc(100%/2.5);
+    }
+  }
+
+  @media screen and (max-width: 600px) 
+  {
+      .home .cards{
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .home .cards .homeCard{
+        width: 100%;
+        margin-left: 0px;
+    }
+  }
