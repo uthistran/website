@@ -13,13 +13,19 @@ class App extends React.Component {
             product: {},
             cart: [],
             isFloatingMenu: false,
-            isNavigationSideMenuOpen : false
+            isNavigationSideMenuOpen : false,
+            activeProductView : null
         }
         this.onScrollHandler = this.onScrollHandler.bind(this);
         this.onClickAdd = this.onClickAdd.bind(this);
         this.onClickMinus = this.onClickMinus.bind(this);
         this.onRemoveClick = this.onRemoveClick.bind(this);
         this.UpdateNavSideMenu = this.UpdateNavSideMenu.bind(this);
+        this.UpdateActiveProductView = this.UpdateActiveProductView.bind(this);
+    }
+
+    UpdateActiveProductView(value){
+        this.setState({activeProductView : value})
     }
 
     UpdateNavSideMenu(){
@@ -105,7 +111,8 @@ class App extends React.Component {
 
     render() {
         return (
-            <DataContext.Provider value={{ config: this.state.config, product: this.state.product, cart: this.state.cart, updateCart: this.handleUpdateCart.bind(this), isNavSideMenuOpen : this.state.isNavigationSideMenuOpen, updateNavMenu : this.UpdateNavSideMenu }}>
+            <DataContext.Provider value={{ config: this.state.config, product: this.state.product, cart: this.state.cart, updateCart: this.handleUpdateCart.bind(this), isNavSideMenuOpen : this.state.isNavigationSideMenuOpen, updateNavMenu : this.UpdateNavSideMenu,
+            activeProductView : this.state.activeProductView, updateActiveProductView : this.UpdateActiveProductView }}>
                 <div>
                     <HeaderComponent></HeaderComponent>
                     <Routing isFloatingMenu={this.state.isFloatingMenu}></Routing>

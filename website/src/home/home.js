@@ -9,6 +9,10 @@ class Home extends React.Component {
         this.state = {
             randomArray : []
         }
+        this.handleCardClick = this.handleCardClick.bind(this);
+    }
+    handleCardClick(value){
+        this.context.updateActiveProductView(value);
     }
     static contextType = DataContext;
     render() {
@@ -42,7 +46,7 @@ class Home extends React.Component {
         if(products){
             this.state.randomArray.forEach((value, index) => {
                 if(products[value]){
-                    obj.push(<HomeProduct key={index} product={products[value]}></HomeProduct>);
+                    obj.push(<HomeProduct handleCardClick={this.handleCardClick} key={index} product={products[value]}></HomeProduct>);
                 }
             })
         }

@@ -7,35 +7,12 @@ class MenuBar extends React.Component {
 
     constructor() {
         super();
-        this.state = {
-            activeLink: 'Home'
-        }
         this.handleMenuClick = this.handleMenuClick.bind(this);
     }
 
     static contextType = DataContext;
 
-    pathmapping = {
-        "/": "Home",
-        "/about": "About",
-        "/product": "Product",
-        "/contact": "Contact"
-    }
-
-    componentDidMount() {
-        this.getActiveLinkOnRefresh(this.props.location.pathname);
-    }
-
-    getActiveLinkOnRefresh(pathname) {
-        this.setState({
-            activeLink: this.pathmapping[pathname]
-        })
-    }
-
     handleMenuClick(id) {
-        this.setState({
-            activeLink: id
-        })
         this.context.updateNavMenu()
     }
 
@@ -55,16 +32,16 @@ class MenuBar extends React.Component {
                 </div>
                 <div className='routing'>
                     <ul>
-                        <li onClick={() => this.handleMenuClick('Home')} className={this.state.activeLink === 'Home' ? 'active' : ''}>
+                        <li onClick={() => this.handleMenuClick('Home')} className={this.props.location.pathname === '/' ? 'active' : ''}>
                             <Link className="noselect" to='/'>Home</Link>
                         </li>
-                        <li onClick={() => this.handleMenuClick('About')} className={this.state.activeLink === 'About' ? 'active' : ''}>
+                        <li onClick={() => this.handleMenuClick('About')} className={this.props.location.pathname === '/about' ? 'active' : ''}>
                             <Link className="noselect" to='/about'>Gallery</Link>
                         </li>
-                        <li onClick={() => this.handleMenuClick('Product')} className={this.state.activeLink === 'Product' ? 'active' : ''}>
+                        <li onClick={() => this.handleMenuClick('Product')} className={this.props.location.pathname === '/product' ? 'active' : ''}>
                             <Link className="noselect" to='/product'>Product</Link>
                         </li>
-                        <li onClick={() => this.handleMenuClick('Contact')} className={this.state.activeLink === 'Contact' ? 'active' : ''}>
+                        <li onClick={() => this.handleMenuClick('Contact')} className={this.props.location.pathname === '/contact' ? 'active' : ''}>
                             <Link className="noselect" to='/contact'>Contact Us</Link>
                         </li>
                     </ul>
@@ -82,16 +59,16 @@ class MenuBar extends React.Component {
                 </div>
                 <div className='routing'>
                     <ul>
-                        <li onClick={() => this.handleMenuClick('Home')} className={this.state.activeLink === 'Home' ? 'active' : ''}>
+                        <li onClick={() => this.handleMenuClick('Home')} className={this.props.location.pathname === '/' ? 'active' : ''}>
                             <Link className="noselect" to='/'>Home</Link>
                         </li>
-                        <li onClick={() => this.handleMenuClick('About')} className={this.state.activeLink === 'About' ? 'active' : ''}>
+                        <li onClick={() => this.handleMenuClick('About')} className={this.props.location.pathname === '/about' ? 'active' : ''}>
                             <Link className="noselect" to='/about'>Gallery</Link>
                         </li>
-                        <li onClick={() => this.handleMenuClick('Product')} className={this.state.activeLink === 'Product' ? 'active' : ''}>
+                        <li onClick={() => this.handleMenuClick('Product')} className={this.props.location.pathname === '/product' ? 'active' : ''}>
                             <Link className="noselect" to='/product'>Product</Link>
                         </li>
-                        <li onClick={() => this.handleMenuClick('Contact')} className={this.state.activeLink === 'Contact' ? 'active' : ''}>
+                        <li onClick={() => this.handleMenuClick('Contact')} className={this.props.location.pathname === '/contact' ? 'active' : ''}>
                             <Link className="noselect" to='/contact'>Contact Us</Link>
                         </li>
                     </ul>

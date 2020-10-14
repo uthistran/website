@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 
 function HomeProduct(props) {
     const history = useHistory();
-
     let product = props.product;
     return (
         <MDBCard md="3" className="homeCard" onClick={() => handleClick(product.mainproduct)}>
@@ -22,6 +21,7 @@ function HomeProduct(props) {
 
     function handleClick(value){
         history.push("/product");
+        props.handleCardClick(value)
     }
 
     function getImageSrc(path){

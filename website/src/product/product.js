@@ -45,6 +45,14 @@ class Product extends React.Component {
         this.setState({ currentPage: value })
     }
 
+    componentDidMount(){
+        if(this.context.activeProductView){
+            this.setState({
+                activeView : this.context.activeProductView
+            })
+        }
+    }
+
 
     static contextType = DataContext;
     render() {
