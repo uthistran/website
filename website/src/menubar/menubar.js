@@ -35,8 +35,8 @@ class MenuBar extends React.Component {
                         <li onClick={() => this.handleMenuClick('Home')} className={this.props.location.pathname === '/' ? 'active' : ''}>
                             <Link className="noselect" to='/'>Home</Link>
                         </li>
-                        <li onClick={() => this.handleMenuClick('About')} className={this.props.location.pathname === '/about' ? 'active' : ''}>
-                            <Link className="noselect" to='/about'>Gallery</Link>
+                        <li onClick={() => this.handleMenuClick('About')} className={this.props.location.pathname === '/catalog' ? 'active' : ''}>
+                            <Link className="noselect" to='/catalog'>Catalog</Link>
                         </li>
                         <li onClick={() => this.handleMenuClick('Product')} className={this.props.location.pathname === '/product' ? 'active' : ''}>
                             <Link className="noselect" to='/product'>Product</Link>
@@ -62,8 +62,8 @@ class MenuBar extends React.Component {
                         <li onClick={() => this.handleMenuClick('Home')} className={this.props.location.pathname === '/' ? 'active' : ''}>
                             <Link className="noselect" to='/'>Home</Link>
                         </li>
-                        <li onClick={() => this.handleMenuClick('About')} className={this.props.location.pathname === '/about' ? 'active' : ''}>
-                            <Link className="noselect" to='/about'>Gallery</Link>
+                        <li onClick={() => this.handleMenuClick('About')} className={this.props.location.pathname === '/catalog' ? 'active' : ''}>
+                            <Link className="noselect" to='/catalog'>Catalog</Link>
                         </li>
                         <li onClick={() => this.handleMenuClick('Product')} className={this.props.location.pathname === '/product' ? 'active' : ''}>
                             <Link className="noselect" to='/product'>Product</Link>

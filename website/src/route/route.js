@@ -17,7 +17,7 @@ class Routing extends React.Component {
                 <Suspense fallback={<div>Loading...</div>}>
                     <Switch>
                         <Route exact path="/" component={this.Home} pattern='/' />
-                        <Route path="/about" component={this.About} pattern='/about' />
+                        <Route path="/catalog" component={this.About} pattern='/about' />
                         <Route path="/product" component={this.Product} pattern='/product' />
                         <Route path="/contact" component={this.Contact} pattern='/contact' />
                         <Route component={this.NoMatch} />
