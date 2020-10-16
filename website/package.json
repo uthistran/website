@@ -34,6 +34,7 @@
     ]
   },
   "devDependencies": {
+    "emailjs-com": "^2.6.3",
     "react-pdf": "^5.0.0"
   }
 }

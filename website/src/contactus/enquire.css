@@ -1,0 +1,13 @@
+.success, .failure{
+    text-align: center;
+    font-weight: bold;
+}
+
+.success i{
+    color: green;
+    margin-right: 10px;
+}
+
+.failure a{
+    margin-left: 10px;
+}
