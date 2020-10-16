@@ -22,7 +22,7 @@ class Enquire extends React.Component {
             'from_name': document.getElementById('id_name').value,
             'message': document.getElementById('id_message').value
         }
-        emailjs.send('service_ui6us9w', 'template_kpmlugd', templateParams, 'user_txO0HfN3SptM4s4tZPvLf')
+        emailjs.send('service_fjwcxqe', 'template_y9ojecr', templateParams, 'user_qOTHtdMpGB114hwfMLEOz')
             .then((result) => {
                 console.log(result.text); this.setState({ messageState: 'success' })
             }, (error) => {
