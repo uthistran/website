@@ -43,7 +43,7 @@
 
 @font-face {
     font-family: 'brandfont';
-    src: url('/webfonts/fa-brands-400.woff') format('woff');
+    src:url('../contactus/webfonts/fa-brands-400.woff') format('woff');
   }
 
   .socialmedia{
