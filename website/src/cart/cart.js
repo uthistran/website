@@ -112,7 +112,7 @@ class Cart extends React.Component {
     }
 
     getImagePath(image) {
-        return '/images/' + image;
+        return process.env.PUBLIC_URL +'/images/' + image;
     }
 
     getDiscountedPrice(price, discount) {

@@ -25,7 +25,7 @@ function HomeProduct(props) {
     }
 
     function getImageSrc(path){
-        return '/images/' + path;
+        return process.env.PUBLIC_URL + '/images/' + path;
     }
 }
 

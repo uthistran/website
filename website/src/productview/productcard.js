@@ -25,7 +25,7 @@ class ProductCard extends React.Component {
                     </div>
                     <div className='discountImage'>
                         <div className='discountImageHolder'>
-                            <img alt='discount' src='/images/star.png'>
+                            <img alt='discount' src= {process.env.PUBLIC_URL +'/images/star.png'}>
 
                             </img>
                             <div className='discountText'>{product.discount}</div>
@@ -43,7 +43,7 @@ class ProductCard extends React.Component {
     }
 
     getImageSrc(value) {
-        return '/images/' + value;
+        return process.env.PUBLIC_URL + '/images/' + value;
     }
 
     getDiscountedPrice(price, discount) {

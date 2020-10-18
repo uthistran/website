@@ -20,7 +20,7 @@ class Home extends React.Component {
         return (
             <div className='home'>
                 <video id='vid' width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src='/video/firework.mp4' type="video/mp4"></source>
+                    <source src={process.env.PUBLIC_URL + '/video/firework.mp4'} type="video/mp4"></source>
                 </video>
                 <div className='cards'>
                     {this.getMainProducts(products.ProductDetails)}

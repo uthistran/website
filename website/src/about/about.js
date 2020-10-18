@@ -73,7 +73,7 @@ function About() {
             <h3 className=''>Catalog</h3>
             <div>
                 <Document
-                    file="/doc/catalog.pdf"
+                    file={process.env.PUBLIC_URL + "/doc/catalog.pdf"}
                     onLoadSuccess={onDocumentLoadSuccess}>
                     <Page pageNumber={pageNumber} height={window.innerHeight - 150} />
                 </Document>
