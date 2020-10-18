@@ -25,7 +25,7 @@ class MenuBar extends React.Component {
         return (
             <div className={mainClass}>
                 <div className='logo'>
-                    <img src='/images/logo.png' alt='logo'></img>
+                    <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt='logo'></img>
                     <div className='closeBtn' onClick={this.context.updateNavMenu}> 
                         <i className="fas fa-times"></i>
                     </div>
@@ -55,7 +55,7 @@ class MenuBar extends React.Component {
         return (
             <div className='floatingMenu'>
                 <div className='logo'>
-                    <img src='/images/logo.png' alt='logo'></img>
+                    <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt='logo'></img>
                 </div>
                 <div className='routing'>
                     <ul>
