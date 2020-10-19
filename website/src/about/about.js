@@ -73,7 +73,7 @@ function About() {
             <h3 className=''>Catalog</h3>
             <div>
                 <Document
-                    file={process.env.PUBLIC_URL + "/doc/catalog.pdf"}
+                    file={"https://cdn.glitch.com/9c6632f8-26c9-40c9-aad2-278ed150319f%2Fcatalog.pdf?v=1603150396657"}
                     onLoadSuccess={onDocumentLoadSuccess}>
                     <Page pageNumber={pageNumber} height={window.innerHeight - 150} />
                 </Document>
