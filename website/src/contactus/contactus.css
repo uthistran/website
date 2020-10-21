@@ -19,12 +19,13 @@
 
 .contactusCard{
     margin-bottom: 10px;
-    font-family: brandfont ;
+    /* font-family: brandfont ; */
 }
 
 .contactusCard .contactusCardText{
     float: left;
     margin-right: 30px;
+    font-family: brandfont ;
 }
 
 .contactusCard .contactusPhone{
@@ -51,6 +52,7 @@
 
   .contactusCard a .wa{
       color: green;
+      font-family: brandfont ;
   }
 
   .contactusCard a .fb{
