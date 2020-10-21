@@ -71,13 +71,6 @@ function About() {
     return (
         <div className='about'>
             <h3 className=''>Catalog</h3>
-            <div>
-                <Document
-                    file={"https://cdn.glitch.com/9c6632f8-26c9-40c9-aad2-278ed150319f%2Fcatalog.pdf?v=1603150396657"}
-                    onLoadSuccess={onDocumentLoadSuccess}>
-                    <Page pageNumber={pageNumber} height={window.innerHeight - 150} />
-                </Document>
-            </div>
             <div className='pageNavigation'>
                 <span className={leftArrowClass} onClick={goToPrevious}>
                     <i className="fas fa-arrow-left"></i>
@@ -86,6 +79,13 @@ function About() {
                 <span>&#47;</span>
                 <span className='totalPageInput'>{numPages}</span>
                 <span className={rightArrowClass} onClick={goToNext}><i className="fas fa-arrow-right"></i></span>
+            </div>
+            <div>
+                <Document
+                    file={"https://cdn.glitch.com/9c6632f8-26c9-40c9-aad2-278ed150319f%2Fcatalog.pdf?v=1603150396657"}
+                    onLoadSuccess={onDocumentLoadSuccess}>
+                    <Page pageNumber={pageNumber} height={window.innerHeight - 200} />
+                </Document>
             </div>
         </div>
     )
