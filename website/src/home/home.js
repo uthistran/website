@@ -22,6 +22,12 @@ class Home extends React.Component {
                 <video id='vid' width="100%" height="100%" autoPlay loop muted playsInline>
                     <source src={"https://cdn.glitch.com/9c6632f8-26c9-40c9-aad2-278ed150319f%2FFirework%20-%2032826%20(1).mp4?v=1603147567502"} type="video/mp4"></source>
                 </video>
+                <div className='brands'>
+                    <div className='brandHead'>Brands</div>
+                    <div className='brand1'>Varshini</div>
+                    <div className='brand2'>RSR</div>
+                    <div className='brand3'>Fly Brands</div>
+                </div>
                 <div className='cards'>
                     {this.getMainProducts(products.ProductDetails)}
                 </div>

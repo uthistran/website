@@ -23,6 +23,25 @@
     text-align: center;
 }
 
+.home .brands{
+    text-align: center;
+    font-size: 25px;
+    transition: all 1s ease;
+}
+
+.home .brands .brandHead{
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.home .brands .brand1,.home .brands .brand2, .home .brands .brand3{
+  position:relative;
+  animation:animateleft 3s
+}
+
+@keyframes animateleft{from{left:-500px;opacity:0} to{left:0;opacity:1}}
+
 @media screen and (max-width: 880px) 
   {
     .home .cards .homeCard{
